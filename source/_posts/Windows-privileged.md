@@ -38,7 +38,7 @@ date: 2019-08-25 08:30:16
 
 ### Video ###
 
-<div class="aspect-ratio"><iframe src="//player.bilibili.com/player.html?aid=65238139&cid=113228058&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></div>
+<div class="aspect-ratio"><iframe src="//player.bilibili.com/player.html?aid=65238139&cid=113228058&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
 
 **Reference**
 
