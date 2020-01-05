@@ -6,3 +6,4 @@ _config.yml
 node_modules/
 public/
 .deploy*/
+package-lock.json
