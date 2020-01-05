@@ -44,6 +44,10 @@ So，通过修改`content.xml`内容重新压缩回odt文件，当打开odt文�
 
 ![](https://s2.ax1x.com/2019/07/13/Z4Ne8f.png)
 
+### Video ###
+
+<div class="aspect-ratio"><iframe src="//player.bilibili.com/player.html?aid=63298083&cid=109925123&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></div>
+
 ### END ###
 
 为了增加触发率，可以设置超链接为白色并遍布整个页面

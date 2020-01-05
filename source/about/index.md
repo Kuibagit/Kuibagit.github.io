@@ -1,6 +1,7 @@
 ---
 title: about
 date: 2018-12-21 04:13:23
+comment: false
 ---
 
 <font color=#1bcc7c size=5>**#**</font> <font color=black size=5>**Motto**</font>
