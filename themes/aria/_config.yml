@@ -8,11 +8,8 @@ menu:
     漏洞复现: categories/漏洞复现/
     编程语言: categories/编程语言/
     转载搬运: categories/转载搬运/
-<<<<<<< HEAD
     # 工具: categories/工具/
-=======
     HTB搬运: categories/HTB搬运/
->>>>>>> origin/blogSource
     杂项: categories/杂项/
     about: about/
     # commonweal: 404/
@@ -180,17 +177,14 @@ blogroll:
     - name: Rogerd
       link: https://yiwlny.github.io/
       icon: <i class="fas fa-link"></i>
-<<<<<<< HEAD
     - name: 梁先生
       link: https://cantflywings.github.io/
       icon: <i class="fas fa-link"></i>
     - name: manmachines
-=======
     - name: K师傅
       link: https://cantflywings.github.io/
       icon: <i class="fas fa-link"></i>
     - name: 菜师傅
->>>>>>> origin/blogSource
       link: https://manmachines.github.io/
       icon: <i class="fas fa-link"></i>
 
