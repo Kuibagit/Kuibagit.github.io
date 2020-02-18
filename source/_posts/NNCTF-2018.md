@@ -42,7 +42,8 @@ http://gxnnctf.gxsosec.cn:12311/?no=1%00-
 
 ![](https://ae01.alicdn.com/kf/HTB1zOKqaBCw3KVjSZR0762cUpXay.png)
 
-`if($username === 'guest'){    if($username === 'admin'){ `  
+`if($username === 'guest'){    if($username === 'admin'){ ` 
+ 
 条件是两个查询 一个是`guest `一个是`admin` 可见可能是利用条件语句来查询数据库。
 
 `if(preg_match('#sleep|benchmark|floor|rand|count|select|from|\(|\)|time|date|sec|day#is',$ip)){`
@@ -64,6 +65,7 @@ Sql绕过
 ```
 http://gxnnctf.gxsosec.cn:12312/index.php?backdoor=Melonrind&id=case%20when%20@x%20IS%20NULL%20THEN%20@x:=2%20ELSE%20@x:=1%20end 
 ```
+
 ![](https://ae01.alicdn.com/kf/HTB1kJekaEGF3KVjSZFm762qPXXal.png)
 
 ## 白帽子商城 ##
@@ -141,9 +143,9 @@ GXNNCT F{LEEM ENATRY ----CR YPATNA LYISS}
 
 ![](https://ae01.alicdn.com/kf/HTB1VbytaqSs3KVjSZPi763siVXaU.png)
 
-What，这是什么啊，新手的我一脸懵逼。后面baidu、Google了一波，原来这个是ASCII码，把ASCII转换成对应的字符串，然后再base64解码即可，
-
 ![](https://ae01.alicdn.com/kf/HTB1L5CqaBCw3KVjSZR0762cUpXah.png)
+
+What，这是什么啊，新手的我一脸懵逼。后面baidu、Google了一波，原来这个是ASCII码，把ASCII转换成对应的字符串，然后再base64解码即可。
 
 ![](https://ae01.alicdn.com/kf/HTB1HcymaBSD3KVjSZFq7634bpXav.png)
 
@@ -185,27 +187,30 @@ What，这是什么啊，新手的我一脸懵逼。后面baidu、Google了一�
 
 ![](https://ae01.alicdn.com/kf/HTB1aYOmaBSD3KVjSZFq7634bpXaT.png)
 
+![](https://ae01.alicdn.com/kf/HTB1Vy1kaEGF3KVjSZFv762_nXXaI.png)
+
 ## MOBILE ##
 
 ### IOS_200 ##
 
 > 题目描述：IOS送分题
 
-压缩包下载下来解压，先file一下看看，发现里面的【UnlockMyIphone】是64位的app文件
+压缩包下载下来解压，先file一下看看，发现里面的【UnlockMyIphone】是64位的app文件。
 
-![](https://ae01.alicdn.com/kf/HTB1Vy1kaEGF3KVjSZFv762_nXXaI.png)
-
-直接扔进IDA，搜索一波flag，key之类的关键字，搜到一串私钥，仔细看，发现这是不需要密钥就可以解密的
 
 ![](https://ae01.alicdn.com/kf/HTB1wnmjav5G3KVjSZPx762I3XXaS.png)
 
-私钥后面跟着两串类似加密的字符串，不管那多，把私钥和这两串文本复制出来先。
+直接扔进IDA，搜索一波flag，key之类的关键字，搜到一串私钥，仔细看，发现这是不需要密钥就可以解密的。
 
 ![](https://ae01.alicdn.com/kf/HTB19RR_Xkxz61VjSZFt761DSVXaJ.png)
 
-百度 在线rsa加密解密，找到以下站点进行解密（这里好像有个小坑，百度出来的前三个站点解不了，不知什么情况）
+私钥后面跟着两串类似加密的字符串，不管那多，把私钥和这两串文本复制出来先。
 
 ![0x31.png](https://ae01.alicdn.com/kf/HTB1FHSqaBGw3KVjSZFw762Q2FXae.png)
+
+百度 在线rsa加密解密，找到以下站点进行解密（这里好像有个小坑，百度出来的前三个站点解不了，不知什么情况）
+
+![](https://ae01.alicdn.com/kf/HTB1HuyqaBKw3KVjSZFO761rDVXaT.png)
 
 ## BASIC:###
 
@@ -217,7 +222,7 @@ FE&pd8dMFLR%)(DsGbhi@/dKPNR'*TUm?\tlr.7RV
 
 直接base92解码拿到flag
 
-![](https://ae01.alicdn.com/kf/HTB1HuyqaBKw3KVjSZFO761rDVXaT.png)
+![](https://ae01.alicdn.com/kf/HTB14vKqaBKw3KVjSZTE763uRpXaK.png)
 
 ## 真—签到题：##
 
@@ -237,7 +242,7 @@ BZGTNPMMCGZFPUWJCUIGRWXPFNLHZCKOAPGLKYJNRAQFIUYRAVGNPANUMDQOAHMWTGJDXGOMPJPTKAAV
 
 `https://guballa.de/vigenere-solver`
 
-![](https://ae01.alicdn.com/kf/HTB14vKqaBKw3KVjSZTE763uRpXaK.png)
+![](https://ae01.alicdn.com/kf/Hfe537524fb7747ab9da36207a896ceedj.png)
 
 ### Shamir重要数据损坏 ###
 
@@ -248,7 +253,6 @@ BZGTNPMMCGZFPUWJCUIGRWXPFNLHZCKOAPGLKYJNRAQFIUYRAVGNPANUMDQOAHMWTGJDXGOMPJPTKAAV
 A =	 1  7  49
 	 1  9  81
 ```
-
 
 由矩形对应
 
