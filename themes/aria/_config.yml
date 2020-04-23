@@ -131,7 +131,7 @@ social:
       link: mailto:a3VpYmFoZEBmb3htYWlsLmNvbQ
       icon: <i class="fas fa-envelope"></i>
     - name: GitHub
-      link: https://github.com/kuibagit/
+      link: https://github.com/
       icon: <i class="fab fa-github"></i>
     - name: Weibo
       link: https://weibo.com/
@@ -140,13 +140,10 @@ social:
 blogroll:
   enable: true
   links:
-    - name: 即刻安全
-      link: http://www.secist.com/
-      icon: <i class="fas fa-link"></i>
-    - name: Demon哥
+    - name: Demon
       link: https://www.ggsec.cn/
       icon: <i class="fas fa-link"></i>
-    - name: 倾旋师傅
+    - name: 倾旋
       link: https://payloads.online/
       icon: <i class="fas fa-link"></i>
     - name: Uknowse
