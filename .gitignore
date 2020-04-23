@@ -2,10 +2,8 @@
 Thumbs.db
 db.json
 *.log
-_config.yml
+_con*.yml
 node_modules/
 public/
 .deploy*/
-themes/aria/_config.yml
-themes/next/_config.yml
 package-lock.json
