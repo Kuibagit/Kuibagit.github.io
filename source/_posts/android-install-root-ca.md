@@ -39,12 +39,25 @@ openssl x509 -inform PEM -text -in cert.pem -out /dev/null >> 7bf17d07.0
 
 ![](https://ae01.alicdn.com/kf/HTB1ABOXaxiH3KVjSZPf760BiVXaO.png)
 
-把`7bf17d07.0` cp到手机上
+openssl 版本大于 1.0 使用以下命令
+
+```bash
+openssl x509 -inform DER -in cacert.der -out cacert.pem
+
+openssl x509 -inform PEM -subject_hash_old -in cacert.pem | head -1
+
+mv cacert.pem 9a5ba575.0
+```
+
+![](https://s1.ax1x.com/2020/04/30/JqiW5R.png)
+
+把`7bf17d07.0` 或 `9a5ba575.0` cp到手机上
+
 然后把 复制到 `/system/etc/security/cacerts/` 目录下(使用RE文件管理器进行操作)，并修改其权限为`644`
 
 ![](https://ae01.alicdn.com/kf/HTB1qZ9caBWD3KVjSZKP761p7FXaP.png)
 
-然后重启手机后，ca证书已经安装到系统下了，现在可以正常捉到小程序的数据包了。
+然后重启手机后，ca证书已经安装到系统下了，然后就可以正常捉到小程序的数据包了。
 
 ![](https://ae01.alicdn.com/kf/HTB1pRCXaxiH3KVjSZPf760BiVXaK.png)
 
