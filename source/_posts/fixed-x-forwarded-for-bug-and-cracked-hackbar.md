@@ -58,7 +58,7 @@ function disable_hackbar(message=null) {
 }
 ```
 
-![](https://s1.ax1x.com/2020/05/08/YnCHVP.png))
+![](https://s1.ax1x.com/2020/05/08/YnCHVP.png)
 
 删除存 META-INF，重新打包为zip，然后上传到Firefox开发者中心进行签名，签名完下载安装即可。
 

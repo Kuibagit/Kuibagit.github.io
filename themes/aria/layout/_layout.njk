@@ -13,9 +13,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ theme.google_analytics }}"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '{{ theme.google_analytics }}');
+      var gtag = function () {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "{{ theme.google_analytics }}");
     </script>
     {% endif %}
     {% if theme.google_verification %}
@@ -67,6 +69,7 @@
     <link rel="stylesheet" type="text/css" href="{% if theme.lib_cdn.enable and theme.lib_cdn.lightgallery.css %}{{ theme.lib_cdn.lightgallery.css }}{% else %}{{ url_for("css/lightgallery.min.css") }}{% endif %}">
     <script type="text/javascript" src="{% if theme.lib_cdn.enable and theme.lib_cdn.jquery %}{{ theme.lib_cdn.jquery }}{% else %}{{ url_for("js/jquery.min.js") }}{% endif %}"></script>
     <script defer type="text/javascript" src="{% if theme.lib_cdn.enable and theme.lib_cdn.util %}{{ theme.lib_cdn.util }}{% else %}{{ url_for("js/util.js") }}{% endif %}"></script>
+    <script defer type="text/javascript" src="{% if themeConfig.lib_cdn.enable and themeConfig.lib_cdn.clipboard %}{{ themeConfig.lib_cdn.clipboard }}{% else %}{{ url_for("js/clipboard.min.js") }}{% endif %}"></script>
     <script defer type="text/javascript" src="{% if theme.lib_cdn.enable and theme.lib_cdn.scrollspy %}{{ theme.lib_cdn.scrollspy }}{% else %}{{ url_for("js/scrollspy.js") }}{% endif %}"></script>
     <script defer type="text/javascript" src="{% if theme.lib_cdn.enable and theme.lib_cdn.fontawesome %}{{ theme.lib_cdn.fontawesome }}{% else %}{{ url_for("js/fontawesome-all.min.js") }}{% endif %}"></script>
     <script defer type="text/javascript" src="{% if theme.lib_cdn.enable and theme.lib_cdn.lightgallery.js %}{{ theme.lib_cdn.lightgallery.js }}{% else %}{{ url_for("js/lightgallery.min.js") }}{% endif %}"></script>
@@ -114,6 +117,79 @@
     {% endif %}
     {% endif %}
     <script defer type="text/javascript" src="{{ url_for("js/index.js") }}"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">{{ __("clipboard.copy") }}</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"{{ __("clipboard.copy") }}\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "{{ __("code") }}",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">{{ __("clipboard.copy") }}</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"{{ __("clipboard.copy") }}\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "{{ __("code") }}",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
     {% block js %}{% endblock %}
     <script defer type="text/javascript" src="{{ url_for("js/custom.js") }}"></script>
     <title>{% block title %}{% endblock %}</title>

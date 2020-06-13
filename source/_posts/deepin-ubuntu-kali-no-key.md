@@ -13,7 +13,7 @@ date: 2018-12-04 15:07:37
 ![](https://ae01.alicdn.com/kf/HTB1Laqbav1H3KVjSZFBq6zSMXXaq.jpg)
 <!--more-->
 
-## <font color=#1bcc7c size=>#</font> deepin/ubuntu/kali更换仓库源提示没有签名 ##
+## deepin/ubuntu/kali更换仓库源提示没有签名 ##
 
 ![](https://ae01.alicdn.com/kf/HTB1dUKaav1H3KVjSZFH762KppXaT.png)
 
