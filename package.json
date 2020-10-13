@@ -6,15 +6,15 @@
     "version": "4.2.0"
   },
   "dependencies": {
-    "hexo": "^4.2.0",
-    "hexo-abbrlink": "^2.0.5",
+    "hexo": "^4.2.1",
+    "hexo-abbrlink": "^2.2.1",
     "hexo-asset-image": "1.0.0",
     "hexo-deployer-git": "^2.1.0",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
     "hexo-generator-feed": "^2.2.0",
     "hexo-generator-index": "^1.0.0",
-    "hexo-generator-search": "^2.4.0",
+    "hexo-generator-search": "^2.4.1",
     "hexo-generator-tag": "^1.0.0",
     "hexo-renderer-ejs": "^1.0.0",
     "hexo-renderer-jade": "^0.5.0",
@@ -24,11 +24,13 @@
     "hexo-server": "^1.0.0",
     "hexo-tag-aplayer": "^3.0.4",
     "hexo-tag-dplayer": "^0.3.3",
-    "live2d-widget-model-haruto": "^1.0.5"
+    "live2d-widget-model-haruto": "^1.0.5",
+    "lodash.merge": "^4.6.2",
+    "webpack": "^5.1.0"
   },
   "devDependencies": {
-    "acorn": "^7.1.1",
+    "acorn": "^7.4.1",
     "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.19.0"
+    "eslint-plugin-react": "^7.21.4"
   }
 }
