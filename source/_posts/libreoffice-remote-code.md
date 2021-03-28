@@ -46,7 +46,7 @@ So，通过修改`content.xml`内容重新压缩回odt文件，当打开odt文�
 
 ### Video ###
 
-<div class="aspect-ratio"><iframe src="//player.bilibili.com/player.html?aid=63298083&cid=109925123&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></div>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=63298083&bvid=BV1c4411Q7KM&cid=109925123&page=1"  scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div>
 
 ### END ###
 
