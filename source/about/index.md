@@ -14,6 +14,6 @@ comment: false
 
 - Blog：[Kuiba's blog](https://kuibarj.top)
 
-- Email：a3VpYmFoZEBmb3htYWlsLmNvbQ
+- Email：VpYmFoZEBmb3htYWlsLmNvbQ
 
 - 简述：小二是一名正在安全道路上奋斗的菜鸡，很菜，没什么技术，本博客记录自己的学习经历和笔记。
