@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Kuiba's blog" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">clipboard.copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"clipboard.copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">clipboard.copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"clipboard.copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>记一次失败的手机图片定位 | Kuiba's blog - Listen to your own voice</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Kuiba's blog</a></h1>
+        <h2 class="subtitle">Listen to your own voice</h2>
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%8A%80%E6%9C%AF%E6%B0%B4%E6%96%87/">技术水文</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">漏洞复现</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E8%BD%AC%E8%BD%BD%E6%90%AC%E8%BF%90/">转载搬运</a></li>
+        
+        <li role="menuitem"><a href="/categories/HTB%E6%90%AC%E8%BF%90/">HTB搬运</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://kuibarj.top/posts/f8cabab2.html">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kuiba">
+       <meta itemprop="description" content="这是一个最好的时代，也是最坏的时代，我们亲身经历着激动人心的变革，也往往会陷入选择的迷茫。">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Kuiba's blog">
+      </span>
+    </div>
+
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">记一次失败的手机图片定位</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-05-11T22:24:06+08:00">2019-05-11 22:24:06</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <script src="\assets\js\APlayer.min.js"> </script><p><img src="https://ae01.alicdn.com/kf/HTB1Cb5jaBGw3KVjSZFDq6xWEpXak.jpg"></p>
+<a id="more"></a>
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>“之前”网上有条消息(好像是《社会工程：安全体系中的人性漏洞》一书里面的，网上也有相关的例子)–可以从一张图片定位出该图片的拍摄地点，从而知道“你”曾经去过的一些地方。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>网上已经有蛮多的例子了，以下我也是网上找的代码，然后进行改改组合起来，代码渣渣，大佬勿喷。</p>
+<h3 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h3><p><strong>百度地图AK</strong></p>
+<p><strong>手机原图照片(手机开启GPS且相机设置记录位置信息拍的照片)</strong></p>
+<p>步骤：</p>
+<p>使用python的<code>exifread</code>模块进行读取照片的exif信息，然后把里面的经纬度，拍照手机等信息提取出来。<br>提取出来后再格式化转换一下经纬度，然后调用百度度API进行查询，最后提取【省、市、区、街道】(格式化)等信息</p>
+<p>代码如下：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*-coding: utf-8-*-</span><br><span class="hljs-comment"># _Author: Kuibahd </span><br><span class="hljs-comment"># Time：2019/5/10</span><br><span class="hljs-keyword">from</span> __future__ <span class="hljs-keyword">import</span> division<br><span class="hljs-keyword">import</span> exifread, requests, json, re<br><br><br><span class="hljs-comment"># 提取img信息并获取拍照地点</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">imageread</span><span class="hljs-params">()</span>:</span><br>    f = open(<span class="hljs-string">"D:\\Pychram\\img\\IMG_20190510_201621.jpg"</span>, <span class="hljs-string">'rb'</span>)<br>    imagetext = exifread.process_file(f)<br>    <span class="hljs-comment"># for key in imagetext:</span><br>    <span class="hljs-comment">#     print(key, ":", imagetext[key])</span><br>    f.close()<br>    make = <span class="hljs-string">''</span><br>    ns = <span class="hljs-string">''</span><br>    ms = <span class="hljs-string">''</span><br>    <span class="hljs-keyword">for</span> q <span class="hljs-keyword">in</span> imagetext:<br>        <span class="hljs-keyword">if</span> q == <span class="hljs-string">"Image Make"</span>:<br>            make = imagetext[q]<br>        <span class="hljs-keyword">elif</span> q == <span class="hljs-string">"Image Model"</span>:<br>            model = imagetext[q]<br>            print(<span class="hljs-string">"拍摄图片手机："</span>, str(make) + <span class="hljs-string">' '</span> + str(model))<br>        <span class="hljs-keyword">elif</span> q == <span class="hljs-string">"Image DateTime"</span>:<br>            print(<span class="hljs-string">"图片拍摄时间："</span>, imagetext[q])<br>        <span class="hljs-keyword">elif</span> q == <span class="hljs-string">"GPS GPSLongitude"</span>:<br>            ns = imagetext[q]<br>            <span class="hljs-comment"># print("GPS经度：", imagetext[q], imagetext['GPS GPSLatitudeRef'])</span><br>            print(<span class="hljs-string">"GPS经度："</span>, imagetext[q])<br>        <span class="hljs-keyword">elif</span> q == <span class="hljs-string">"GPS GPSLatitude"</span>:<br>            ms = imagetext[q]<br>            <span class="hljs-comment"># print("GPS纬度：", imagetext[q], imagetext['GPS GPSLongitudeRef'])</span><br>            print(<span class="hljs-string">"GPS纬度："</span>, imagetext[q])<br><br>    <span class="hljs-comment"># 下面转换有些问题导致最后定位偏离了</span><br>    strs1 = str(ns)  <span class="hljs-comment"># 经度</span><br>    strs2 = str(ms)  <span class="hljs-comment"># 纬度</span><br>    <span class="hljs-comment"># 格式化经度</span><br>    e1 = strs1[:<span class="hljs-number">4</span>] + <span class="hljs-string">"°"</span> + strs1[<span class="hljs-number">6</span>:]<br>    e2 = e1[:<span class="hljs-number">6</span>] + <span class="hljs-string">"′"</span> + e1[<span class="hljs-number">8</span>:]<br>    e3 = e2[<span class="hljs-number">1</span>:<span class="hljs-number">9</span>] + <span class="hljs-string">"″"</span><br>    <span class="hljs-comment"># print(e3)</span><br><br>    <span class="hljs-comment"># 转换经度</span><br>    x1 = re.split(<span class="hljs-string">"°|′|″"</span>, e3)[:<span class="hljs-number">3</span>]<br>    x1 = list(map(int, x1))<br>    <span class="hljs-comment"># print(x1[0] + x1[1] / 60 + x1[2] / 3600)</span><br>    lng = str(x1[<span class="hljs-number">0</span>] + x1[<span class="hljs-number">1</span>] / <span class="hljs-number">60</span> + x1[<span class="hljs-number">2</span>] / <span class="hljs-number">3600</span>)<br><br>    <span class="hljs-comment"># 格式纬度</span><br>    n1 = strs2[:<span class="hljs-number">3</span>] + <span class="hljs-string">"°"</span> + strs2[<span class="hljs-number">5</span>:]<br>    n2 = n1[:<span class="hljs-number">6</span>] + <span class="hljs-string">"′"</span> + n1[<span class="hljs-number">7</span>:]<br>    n3 = n2[<span class="hljs-number">1</span>:<span class="hljs-number">9</span>] + <span class="hljs-string">"″"</span><br>    <span class="hljs-comment"># print(n3)</span><br><br>    <span class="hljs-comment"># 转换纬度</span><br>    x2 = re.split(<span class="hljs-string">"°|′|″"</span>, n3)[:<span class="hljs-number">3</span>]<br>    x2 = list(map(int, x2))<br>    <span class="hljs-comment"># print(x2[0] + x2[1] / 60 + x2[2] / 3600)</span><br>    lat = str(x2[<span class="hljs-number">0</span>] + x2[<span class="hljs-number">1</span>] / <span class="hljs-number">60</span> + x2[<span class="hljs-number">2</span>] / <span class="hljs-number">3600</span>)<br><br>    <span class="hljs-comment"># 根据经纬度获取地址</span><br>    ak = <span class="hljs-string">"XXXXXXXXXX"</span>  <span class="hljs-comment"># 百度map AK</span><br>    url = <span class="hljs-string">"http://api.map.baidu.com/geocoder/v2/"</span><br>    items = <span class="hljs-string">"?callback=renderReverse&amp;location=&#123;&#125;,&#123;&#125;&amp;output=json&amp;pois=1&amp;ak=&#123;&#125;"</span>.format(lat, lng, ak)<br>    req = requests.get(url + items, timeout=<span class="hljs-number">2</span>)<br>    <span class="hljs-comment"># print(items)</span><br>    data = req.text<br><br>    <span class="hljs-comment"># 提取信息</span><br>    data = data.replace(<span class="hljs-string">"renderReverse&amp;&amp;renderReverse("</span>, <span class="hljs-string">""</span>)<br>    data = data[:<span class="hljs-number">-1</span>]<br>    baiduAddr = json.loads(data)<br>    province = baiduAddr[<span class="hljs-string">"result"</span>][<span class="hljs-string">"addressComponent"</span>][<span class="hljs-string">"province"</span>]<br>    city = baiduAddr[<span class="hljs-string">"result"</span>][<span class="hljs-string">"addressComponent"</span>][<span class="hljs-string">"city"</span>]<br>    district = baiduAddr[<span class="hljs-string">"result"</span>][<span class="hljs-string">"addressComponent"</span>][<span class="hljs-string">"district"</span>]<br>    street = baiduAddr[<span class="hljs-string">"result"</span>][<span class="hljs-string">"addressComponent"</span>][<span class="hljs-string">"street"</span>]<br>    formatted_address = baiduAddr[<span class="hljs-string">"result"</span>][<span class="hljs-string">"formatted_address"</span>]<br>    new_line = street + <span class="hljs-string">"|"</span> + formatted_address + <span class="hljs-string">"|"</span> + str(lng) + <span class="hljs-string">"|"</span> + str(<br>        lat) + <span class="hljs-string">"|"</span> + province + <span class="hljs-string">"|"</span> + city + <span class="hljs-string">"|"</span> + district<br>    print(<span class="hljs-string">"*****************************************\n拍摄图片位置："</span>)<br>    print(new_line)<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    imageread()<br></code></pre></td></tr></table></figure>
+
+<p>最终结果：</p>
+<p><img src="https://ae01.alicdn.com/kf/HTB1bSOiaBKw3KVjSZTE763uRpXaZ.png"></p>
+<h2 id="END"><a href="#END" class="headerlink" title="END"></a>END</h2><p>由于经纬度格式化、转换那里不是很懂，最后的定位结果(都)是偏离。。。。</p>
+<p><img src="https://ae01.alicdn.com/kf/HTB1TfqcavWG3KVjSZFg762TspXaQ.png"></p>
+<p><strong>Reference</strong></p>
+<p><a href="http://www.cnblogs.com/shiguangliangchunshanbo/p/9745848.html" target="_blank" rel="noopener">http://www.cnblogs.com/shiguangliangchunshanbo/p/9745848.html</a><br><a href="https://blog.csdn.net/oYeZhou/article/details/82012471" target="_blank" rel="noopener">https://blog.csdn.net/oYeZhou/article/details/82012471</a><br><a href="https://blog.csdn.net/ChenVast/article/details/81669788" target="_blank" rel="noopener">https://blog.csdn.net/ChenVast/article/details/81669788</a><br><a href="https://blog.csdn.net/tyt_XiaoTao/article/details/80410279" target="_blank" rel="noopener">https://blog.csdn.net/tyt_XiaoTao/article/details/80410279</a><br><a href="https://www.zhihu.com/question/27043850" target="_blank" rel="noopener">https://www.zhihu.com/question/27043850</a><br><a href="https://www.cnblogs.com/shijingjing07/p/7474570.html" target="_blank" rel="noopener">https://www.cnblogs.com/shijingjing07/p/7474570.html</a></p>
+
+    </main>
+    <div class="copy">
+      
+        
+  <br/>
+  <div style="text-align:center;color:#ccc;font-size:14px;">
+    ------ 本文结束 ------
+  </div>
+  <br/>
+  <div class="my_post_copyright" style="border:1px solid black;background-color:#f9f9f9">
+  	<div style="margin-left:24px">
+  	  <script src="https:////cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  	  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  	  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  	  <p><span>本文标题:</span><a href="/posts/f8cabab2.html">记一次失败的手机图片定位</a></p>
+  	  <p><span>文章作者:</span><a href="/" title="访问 Kuiba 的个人博客">Kuiba</a></p>
+  	  <p><span>发布时间:</span>2019年05月11日 - 22:05</p>
+  	  <!--<p><span>最后更新:</span>2019年05月27日 - 17:05</p>-->
+  	  <p><span>原始链接:</span><a href="/posts/f8cabab2.html" title="记一次失败的手机图片定位">https://kuibarj.top/posts/f8cabab2.html</a>
+  	    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://kuibarj.top/posts/f8cabab2.html"  aria-label="复制成功！"></i></span>
+  	  </p>
+  	  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">Attribution-NonCommercial-NoDerivatives 4.0</a> 转载请保留原文链接及作者。</p>  
+  	</div>
+  </div>
+  <br/>
+  <script> 
+      var clipboard = new Clipboard('.fa-clipboard');
+        $(".fa-clipboard").click(function(){
+        clipboard.on('success', function(){
+          swal({   
+            title: "",   
+            text: '复制成功',
+            icon: "success", 
+            showConfirmButton: true
+            });
+          });
+      });  
+  </script>
+
+      
+    </div>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fas fa-tags"></i>学习</a>
+        
+        <a class="post-tag button" href="/tags/Python/" rel="tag"><i class="fas fa-tags"></i>Python</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/posts/f939aff4.html" rel="prev" title="初次使用BeautifulSoup(bs4)小记"><i class="fas fa-angle-left"></i><span class="nav-title">初次使用BeautifulSoup(bs4)小记</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/posts/4e91690d.html" rel="next" title="RCE Vulnerability in antSword"><span class="nav-title">RCE Vulnerability in antSword</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Kuiba">
+  
+  <h1 class="author-name">Kuiba</h1>
+  <h2 class="author-description">这是一个最好的时代，也是最坏的时代，我们亲身经历着激动人心的变革，也往往会陷入选择的迷茫。</h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">37</a></div>
+    </div>
+    
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">36</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#正文"><span class="toc-text">正文</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#准备阶段"><span class="toc-text">准备阶段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#END"><span class="toc-text">END</span></a></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接</p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:a3VpYmFoZEBmb3htYWlsLmNvbQ" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>大佬们的博客</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.ggsec.cn/" target="_blank">Demon</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://payloads.online/" target="_blank">倾旋</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://wbglil.github.io/" target="_blank">WBGlIl(装小白的巨佬)</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.sariel.top/" target="_blank">只因不值得</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://uknowsec.cn/" target="_blank">Uknowse</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://422926799.github.io/" target="_blank">九世</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://yulige.top/" target="_blank">郁离歌</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://phpinfo.me/" target="_blank">Lcy</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://867810770.github.io/" target="_blank">修心</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://vinc.top/" target="_blank">Vimc</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://qimingyu.com/" target="_blank">qimingyu</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://x.hacking8.com/" target="_blank">小草窝</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://yiwlny.github.io/" target="_blank">Rogerd</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://loulan-ling.github.io/" target="_blank">楼兰-翎师傅</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://manmachines.github.io/" target="_blank">菜师傅</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://whale3070.github.io/" target="_blank">whale3070</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.cnblogs.com/Secde0/" target="_blank">Secde0</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kuiba</span><span class="year"><i class="far fa-copyright"></i>2018 - 2021</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          本站托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://alynx.xyz/" target="_blank">AlynxZhou</a> <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

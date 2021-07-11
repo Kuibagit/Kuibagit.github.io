@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Kuiba's blog" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">clipboard.copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"clipboard.copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">clipboard.copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"clipboard.copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>远程代码执行 | Kuiba's blog - Listen to your own voice</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Kuiba's blog</a></h1>
+        <h2 class="subtitle">Listen to your own voice</h2>
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%8A%80%E6%9C%AF%E6%B0%B4%E6%96%87/">技术水文</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">漏洞复现</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E8%BD%AC%E8%BD%BD%E6%90%AC%E8%BF%90/">转载搬运</a></li>
+        
+        <li role="menuitem"><a href="/categories/HTB%E6%90%AC%E8%BF%90/">HTB搬运</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://kuibarj.top/posts/3b22e763.html">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kuiba">
+       <meta itemprop="description" content="这是一个最好的时代，也是最坏的时代，我们亲身经历着激动人心的变革，也往往会陷入选择的迷茫。">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Kuiba's blog">
+      </span>
+    </div>
+
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">远程代码执行</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-03-02T17:49:22+08:00">2019-03-02 17:49:22</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E8%BD%AC%E8%BD%BD%E6%90%AC%E8%BF%90/" itemprop="url" rel="index"><span itemprop="name">转载搬运</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <script src="\assets\js\APlayer.min.js"> </script><p><img src="https://ae01.alicdn.com/kf/HTB1luqraqWs3KVjSZFxq6yWUXXaS.jpg"></p>
+<a id="more"></a>
+
+<p><strong>原文：倾旋 <a href="https://payloads.online/archivers/2018-03-22/1" target="_blank" rel="noopener">https://payloads.online/archivers/2018-03-22/1</a></strong></p>
+<h2 id="0x00-远程代码执行-介绍"><a href="#0x00-远程代码执行-介绍" class="headerlink" title="0x00 远程代码执行-介绍"></a>0x00 远程代码执行-介绍</h2><h3 id="什么是远程代码执行"><a href="#什么是远程代码执行" class="headerlink" title="什么是远程代码执行"></a>什么是远程代码执行</h3><p>远程命令执行 英文名称：RCE (remote code execution) ，简称RCE漏洞，是指用户通过浏览器提交执行命令，由于服务器端没有针对执行函数做过滤，导致在没有指定绝对路径的情况下就执行命令，可能会允许攻击者通过改变 $PATH 或程序执行环境的其他方面来执行一个恶意构造的代码。</p>
+<h3 id="远程代码执行的特点"><a href="#远程代码执行的特点" class="headerlink" title="远程代码执行的特点"></a>远程代码执行的特点</h3><p>远程代码执行是指攻击者可能会通过远调用的方式来攻击或控制计算机设备，无论该设备在哪里。</p>
+<h2 id="0x01-远程代码执行-风险等级"><a href="#0x01-远程代码执行-风险等级" class="headerlink" title="0x01 远程代码执行-风险等级"></a>0x01 远程代码执行-风险等级</h2><p>** <code>高</code> ** </p>
+<h2 id="0x02-远程代码执行-原理"><a href="#0x02-远程代码执行-原理" class="headerlink" title="0x02 远程代码执行-原理"></a>0x02 远程代码执行-原理</h2><p>由于开发人员编写源码，没有针对代码中可执行的特殊函数入口做过滤，导致客户端可以提交恶意构造语句提交，并交由服务器端执行。命令注入攻击中WEB服务器没有过滤类似system(),eval()，exec()等函数是该漏洞攻击成功的最主要原因。</p>
+<h2 id="0x03-远程代码执行-常见场景"><a href="#0x03-远程代码执行-常见场景" class="headerlink" title="0x03 远程代码执行-常见场景"></a>0x03 远程代码执行-常见场景</h2><h3 id="使用了危险函数的Web应用"><a href="#使用了危险函数的Web应用" class="headerlink" title="使用了危险函数的Web应用"></a>使用了危险函数的Web应用</h3><h3 id="低版本的Java语言Struts框架"><a href="#低版本的Java语言Struts框架" class="headerlink" title="低版本的Java语言Struts框架"></a>低版本的Java语言Struts框架</h3><h2 id="0x04-测试方案"><a href="#0x04-测试方案" class="headerlink" title="0x04 测试方案"></a>0x04 测试方案</h2><h3 id="PHP中常见场景-模板引擎代码执行"><a href="#PHP中常见场景-模板引擎代码执行" class="headerlink" title="PHP中常见场景-模板引擎代码执行"></a>PHP中常见场景-模板引擎代码执行</h3><p><strong>Smarty 简介</strong></p>
+<blockquote>
+<p>Smarty是一个PHP的模板引擎。更明确来说，它可以帮助开发者更好地 分离程序逻辑和页面显示。最好的例子，是当程序员和模板设计师是不同的两个角色的情况，而且 大部分时候都不是同一个人的情况。</p>
+<p>CVE-ID : CVE-2017-1000480</p>
+</blockquote>
+<p><strong>产生原因：</strong> 由于未对用户的输入点进行过滤，导致经过eval函数，造成代码执行。</p>
+<p><strong>测试Payload：</strong></p>
+<p><img src="https://ae01.alicdn.com/kf/HTB1vFCjaA9E3KVjSZFG76319XXap.png" alt="0x01.png"></p>
+<h3 id="Java-Struts2-S2-045"><a href="#Java-Struts2-S2-045" class="headerlink" title="Java Struts2(S2-045)"></a>Java Struts2(S2-045)</h3><p><strong>Struts 简介</strong></p>
+<blockquote>
+<p>Struts2是一个基于MVC设计模式的Web应用框架，它本质上相当于一个servlet，在MVC设计模式中，Struts2作为控制器(Controller)来建立模型与视图的数据交互。Struts 2是Struts的下一代产品，是在 struts 1和WebWork的技术基础上进行了合并的全新的Struts 2框架。</p>
+<p>CVE-ID : CVE-2017-5638</p>
+</blockquote>
+<p><strong>产生原因：</strong>由于未对用户输入点进行过滤，被带入ErrorMessage，当做OGLN表达式解析，造成代码执行。</p>
+<p><strong>测试Payload：</strong></p>
+<p><img src="https://ae01.alicdn.com/kf/HTB18NChawmH3KVjSZKz7622OXXaW.png" alt="0x02.png"></p>
+<h2 id="0x05-修复方案"><a href="#0x05-修复方案" class="headerlink" title="0x05 修复方案"></a>0x05 修复方案</h2><p>升级插件、框架新版本。</p>
+
+    </main>
+    <div class="copy">
+      
+        
+      
+    </div>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Web%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" rel="tag"><i class="fas fa-tags"></i>Web安全测试</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/posts/5be9406d.html" rel="prev" title="Middleware version information leaked"><i class="fas fa-angle-left"></i><span class="nav-title">Middleware version information leaked</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/posts/1de3639b.html" rel="next" title="Jboss反序列化漏洞(CVE-2017-12149)"><span class="nav-title">Jboss反序列化漏洞(CVE-2017-12149)</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Kuiba">
+  
+  <h1 class="author-name">Kuiba</h1>
+  <h2 class="author-description">这是一个最好的时代，也是最坏的时代，我们亲身经历着激动人心的变革，也往往会陷入选择的迷茫。</h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">37</a></div>
+    </div>
+    
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">36</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#0x00-远程代码执行-介绍"><span class="toc-text">0x00 远程代码执行-介绍</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#什么是远程代码执行"><span class="toc-text">什么是远程代码执行</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#远程代码执行的特点"><span class="toc-text">远程代码执行的特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#0x01-远程代码执行-风险等级"><span class="toc-text">0x01 远程代码执行-风险等级</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#0x02-远程代码执行-原理"><span class="toc-text">0x02 远程代码执行-原理</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#0x03-远程代码执行-常见场景"><span class="toc-text">0x03 远程代码执行-常见场景</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#使用了危险函数的Web应用"><span class="toc-text">使用了危险函数的Web应用</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#低版本的Java语言Struts框架"><span class="toc-text">低版本的Java语言Struts框架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#0x04-测试方案"><span class="toc-text">0x04 测试方案</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#PHP中常见场景-模板引擎代码执行"><span class="toc-text">PHP中常见场景-模板引擎代码执行</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Java-Struts2-S2-045"><span class="toc-text">Java Struts2(S2-045)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#0x05-修复方案"><span class="toc-text">0x05 修复方案</span></a></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接</p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:a3VpYmFoZEBmb3htYWlsLmNvbQ" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>大佬们的博客</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.ggsec.cn/" target="_blank">Demon</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://payloads.online/" target="_blank">倾旋</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://wbglil.github.io/" target="_blank">WBGlIl(装小白的巨佬)</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.sariel.top/" target="_blank">只因不值得</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://uknowsec.cn/" target="_blank">Uknowse</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://422926799.github.io/" target="_blank">九世</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://yulige.top/" target="_blank">郁离歌</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://phpinfo.me/" target="_blank">Lcy</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://867810770.github.io/" target="_blank">修心</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://vinc.top/" target="_blank">Vimc</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://qimingyu.com/" target="_blank">qimingyu</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://x.hacking8.com/" target="_blank">小草窝</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://yiwlny.github.io/" target="_blank">Rogerd</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://loulan-ling.github.io/" target="_blank">楼兰-翎师傅</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://manmachines.github.io/" target="_blank">菜师傅</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://whale3070.github.io/" target="_blank">whale3070</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.cnblogs.com/Secde0/" target="_blank">Secde0</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kuiba</span><span class="year"><i class="far fa-copyright"></i>2018 - 2021</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          本站托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://alynx.xyz/" target="_blank">AlynxZhou</a> <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

