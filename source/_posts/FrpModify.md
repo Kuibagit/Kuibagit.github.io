@@ -1,10 +1,11 @@
 ---
 title: 给FRP化化妆
-date: 2021-05-14 05:20:17
-tags:
 categories:
   - 技术水文
 copyright: true
+abbrlink: f3a0015a
+date: 2021-05-14 05:20:17
+tags:
 ---
 
 ![](https://z3.ax1x.com/2021/05/14/grkwg1.gif)
@@ -113,13 +114,13 @@ const (
 
 ### WSS加域前置？
 
-​	改了编译不出来，全是报错。暂时放弃。
+​	改了编译不出来，全是报错？暂时放弃。
 
 ### 修改读写逻辑，异或混淆字符
 
 `pkg/msg/ctl.go`
 
-​	注：总感觉原文 https://www.notion.so/FRP-d3673da19ec74a8781c020bbea883fa2 这部分的代码没给全，编译后的frp使用有问题，连接不了......   **后面还是得用原来的，不做修改。**
+​	注：感觉原文 https://www.notion.so/FRP-d3673da19ec74a8781c020bbea883fa2 这部分的代码没给全，编译后的frp使用有问题，连接不了......   **后面还是得用原来的，不做修改。**
 
 ```go
 package msg
@@ -291,7 +292,7 @@ zsh ./package.sh
 
 ### 后续1:把配置写入源码食用方式
 
-​	通常情况frp程序跟连接配置文件 `frpc/s.ini`要传到目标机上运行，在某些情况下，如HVV时，可能会被其他师傅直接反日。 为了防止或者减少被直接"反打"，把配置写死在代码中可以一定在程度上直接泄露配置中的信息。
+​	通常情况frp的运行程序要跟连接配置文件 `frpc/s.ini`一起传到目标机上运行。在某些情况下，如HVV时，可能会被其他师傅直接反日。 为了防止或者减少被直接"反打"，把配置写死在代码中可以在一定程度上避免泄露配置信息。
 
 frpc.ini
 
@@ -409,7 +410,7 @@ content, err = []byte(fileContent), nil
 
 ​	参照 https://uknowsec.cn/posts/notes/FRP%E6%94%B9%E9%80%A0%E8%AE%A1%E5%88%92.html  【frpc.ini的ip通过参数传入】中的步骤进行修改。
 
-​	**注**：需要使用`Jack-Kingdom`提供源码进行修改，不能使用官方的，否则无法编译，玄学问题？
+​	**注**：需要使用`Jack-Kingdom`提供源码进行修改，不能使用官方的，否则无法编译？
 
 Changfrp：`https://github.com/Jack-Kingdom/frp/tree/4a5c9a8796701472037c979b467c6a9ea449fd62`
 
@@ -427,7 +428,7 @@ rootCmd.PersistentFlags().StringVarP(&fport, "remote_port", "f", "", "remote_por
 
 ![image-20210513160922457](https://z3.ax1x.com/2021/05/14/grkK9s.png)
 
-#### 创建个存放配置信息的方法
+#### 创建存放配置信息的方法
 
 ​	编辑：`cmd/frpc/sub/root.go`  ，新增 `getFileContent`函数：
 
@@ -535,7 +536,7 @@ cd -
 
 ![image-20210511183416429](https://z3.ax1x.com/2021/05/14/grk3uV.png)
 
-打开`Restorator` ，拖入frp到资源树栏，添加资源，类型选图标，名称任意，然拖入图标文件到下图【wps】中。
+打开`Restorator` ，拖入frp到资源树栏，添加资源，类型选图标，名称任意，拖入图标文件到下图【wps】中。
 
 ![image-20210511184242375](https://z3.ax1x.com/2021/05/14/grk8BT.png)
 
@@ -545,7 +546,7 @@ cd -
 
 ### 后续4:UPX压缩减小体积？
 
-​	@Secde0大佬说：`有些文件超过10m反而直接放行了，小的拦截`。我不信，上upx压缩后，用010Editor，删除一下头部标识：upx全部填充为0：
+​	@Secde0大佬说：`别压缩了，有些文件超过10m反而直接放行了，小的被拦截概率大`。我不信，上upx压缩后，用010Editor，删除一下头部标识：upx全部填充为0：
 
 ![image-20210511191202357](https://z3.ax1x.com/2021/05/14/grkYEF.png)
 

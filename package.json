@@ -6,31 +6,35 @@
     "version": "4.2.1"
   },
   "dependencies": {
+    "aplayer": "^1.10.1",
+    "cli-highlight": "^2.1.11",
     "hexo": "^4.2.1",
     "hexo-abbrlink": "^2.2.1",
     "hexo-asset-image": "1.0.0",
-    "hexo-deployer-git": "^2.1.0",
+    "hexo-deployer-git": "^3.0.0",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
-    "hexo-generator-feed": "^2.2.0",
-    "hexo-generator-index": "^1.0.0",
-    "hexo-generator-search": "^2.4.1",
+    "hexo-generator-feed": "^3.0.0",
+    "hexo-generator-index": "^2.0.0",
+    "hexo-generator-search": "^2.4.3",
     "hexo-generator-tag": "^1.0.0",
     "hexo-renderer-ejs": "^1.0.0",
-    "hexo-renderer-jade": "^0.5.0",
-    "hexo-renderer-marked": "^2.0.0",
+    "hexo-renderer-jade": "^0.3.0",
+    "hexo-renderer-marked": "^4.0.0",
     "hexo-renderer-njucks": "^1.0.0",
-    "hexo-renderer-stylus": "^1.1.0",
-    "hexo-server": "^1.0.0",
-    "hexo-tag-aplayer": "^3.0.4",
-    "hexo-tag-dplayer": "^0.3.3",
+    "hexo-renderer-stylus": "^2.0.1",
+    "hexo-server": "^2.0.0",
+    "hexo-tag-aplayer": "^2.0.7",
+    "hexo-util": "^2.5.0",
+    "highlight.js": "^11.1.0",
     "live2d-widget-model-haruto": "^1.0.5",
+    "lodash": "^4.17.21",
     "lodash.merge": "^4.6.2",
-    "webpack": "^5.1.0"
+    "webpack": "^5.44.0"
   },
   "devDependencies": {
-    "acorn": "^7.4.1",
-    "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.21.4"
+    "acorn": "^8.4.1",
+    "eslint": "^7.30.0",
+    "eslint-plugin-react": "^7.24.0"
   }
 }

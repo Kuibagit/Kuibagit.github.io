@@ -20,7 +20,7 @@ date: 2018-12-04 15:07:37
 通过以下命令添加公钥即可
 
 ```bash
-$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 公钥后八位
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys xxxxxxxxx #公钥后八位
 ```
 
 ![](https://ae01.alicdn.com/kf/HTB1Z1KiaBGw3KVjSZFD760WEpXa5.png)

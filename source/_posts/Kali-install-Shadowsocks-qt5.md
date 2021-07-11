@@ -65,7 +65,7 @@ gdebi shadowsocks-qt5_2.8.0-1_amd64.deb
 
 ![](https://ae01.alicdn.com/kf/HTB15_afaBCw3KVjSZFl763JkFXa0.png)
 
-<font color=red size=>更新：2018-10-22</font>
+update：2018-10-22
 
 ### 另一种安装方式，是通过添加deepin的源来安装 ###
 
@@ -83,7 +83,7 @@ deb [by-hash=force] http://mirrors.aliyun.com/deepin panda main contrib non-free
 $ sudo apt-get install shadowsocks-qt5
 ```
 
-<font color=red size=>更新：2019-05-27</font>
+update：2019-05-27
 
 ### 使用github上纸飞机项目给出的可执行程序 ###
 

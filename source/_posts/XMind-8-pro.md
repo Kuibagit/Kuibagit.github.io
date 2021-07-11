@@ -20,7 +20,7 @@ XMind是一款个人觉得还不错的维导图软件，但它是商业软件要
 网上搜到的激活码用在XMind官网下载的`xmind-8-update8`上是用不了的，应该是新版的已经修复了，所以只能用旧版的:`xmind-8-update7`
 
 Download旧版安装包，激活插件，key
-github：https://github.com/Kuibagit/Resource/blob/master/XMind_Crack.zip
+github：https://github.com/Kuibagit/Resource/blob/master/XMind_Crack.zip （压缩包已损坏）
 百度云：https://pan.baidu.com/s/1h6wCRnBomNE5Btr2sB4qyQ 提取码：bzrg 
 
 下载解压安装，然后把`XMindCrack.jar`复制到XMind安装的目录下并在`XMind.ini`添加jar路径，如：
@@ -40,7 +40,7 @@ github：https://github.com/Kuibagit/Resource/blob/master/XMind_Crack.zip
 
 **END**
 
-唔，后面就是打开软件输入序列号了，邮箱可以随便填，只要是邮箱格式就行，序列号在`key.txt`。
+唔，后面就是打开软件输入序列号，序列号在`key.txt`，邮箱可随便填，只要是邮箱格式就行。
 
 ![](https://ae01.alicdn.com/kf/H777b921afcf045b9a7d1341a909487beX.png)
 

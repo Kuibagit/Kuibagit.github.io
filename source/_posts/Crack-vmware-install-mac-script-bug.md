@@ -68,7 +68,7 @@ net start "VMwareHostd" > NUL 2>&1
 
 去除破解的 `win-uninstall.cmd` 也类似，修改相应的地方即可。
 
-[完整脚本](https://github.com/Kuibagit/Resource/blob/master/MK-unlocker.zip)：
+[完整脚本下载地址](https://github.com/Kuibagit/Resource/blob/master/MK-unlocker.zip)：https://github.com/Kuibagit/Resource/blob/master/MK-unlocker.zip
 
 ```cmd
 @echo off
@@ -147,7 +147,7 @@ pause
 
 ![](https://s1.ax1x.com/2020/06/27/N6gXAf.png)
 
-注:
+**注意**
 
 多次运行`win-install.cmd`，容易损坏VMware许可信息，损坏后需要卸载VMware再重新安装。
 

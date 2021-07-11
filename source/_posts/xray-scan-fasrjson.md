@@ -13,7 +13,7 @@ date: 2020-06-13 13:14:03
 ![](https://s1.ax1x.com/2020/06/13/tjv4Z8.jpg)
 <!--more-->
 
-> 以下简文出自于K师傅手
+> 以下简文来自于@loulan-ling师傅
 
 ### 白嫖xray高级版
 
@@ -27,7 +27,7 @@ date: 2020-06-13 13:14:03
 
 ### 配置xray反连平台
 
-首先先把xray反连平台设置好，将listen_ip修改为本地ip
+首先先把xray反连平台设置好，将listen_ip修改为本地ip。
 
 ![image.png](https://s1.ax1x.com/2020/06/13/tjOMDO.png)
 
