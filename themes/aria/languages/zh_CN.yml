@@ -24,12 +24,12 @@ reward:
 postcount:
   none: 博主太懒了，此处暂无文章噢！
   one: 博主已写了 %d 篇文章~
-  more: 本博客共计 %d 篇文章~
+  #more: 本博客共计 %d 篇文章~
 
 tagcount:
   none: 博主太懒了，此处暂无标签噢！
   one: 博主已创建 %d 个标签~
-  more: 本博客共计 %d 个标签~
+  #more: 本博客共计 %d 个标签~
 
 categorycount:
   none: 博主太懒了，还未创建分类！

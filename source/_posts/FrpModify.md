@@ -2,13 +2,15 @@
 title: 给FRP化化妆
 categories:
   - 技术水文
+  - 编程语言
 copyright: true
 abbrlink: f3a0015a
 date: 2021-05-14 05:20:17
 tags:
+  - Go
 ---
 
-![](https://z3.ax1x.com/2021/05/14/grkwg1.gif)
+![](https://z3.ax1x.com/2021/05/14/grkYEF.png)
 <!--more-->
 
 ### 前置环境
