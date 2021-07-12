@@ -6,7 +6,7 @@
   <link href="https://kuibarj.top/atom.xml" rel="self"/>
   
   <link href="https://kuibarj.top/"/>
-  <updated>2021-07-11T13:26:47.501Z</updated>
+  <updated>2021-07-12T16:35:29.383Z</updated>
   <id>https://kuibarj.top/</id>
   
   <author>
@@ -15,6 +15,101 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>亿邮电子邮件系统RCE</title>
+    <link href="https://kuibarj.top/posts/e09aeac0.html"/>
+    <id>https://kuibarj.top/posts/e09aeac0.html</id>
+    <published>2021-07-12T16:16:08.000Z</published>
+    <updated>2021-07-12T16:35:29.383Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2021/jpeg/12849280/1626107438799-38bf6d1c-9d88-40ab-b215-e9d92a0bacec.jpeg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="漏洞复现" scheme="https://kuibarj.top/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="漏洞复现" scheme="https://kuibarj.top/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Yonyou-NC-injection-vulnerability</title>
+    <link href="https://kuibarj.top/posts/6c99903e.html"/>
+    <id>https://kuibarj.top/posts/6c99903e.html</id>
+    <published>2021-07-12T16:01:34.000Z</published>
+    <updated>2021-07-12T16:28:28.046Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2021/jpeg/12849280/1626104393184-ad5dc533-507b-4ebd-8024-fef2759d03fc.jpeg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="漏洞复现" scheme="https://kuibarj.top/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="漏洞复现" scheme="https://kuibarj.top/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kingsoft-K8-vulnerability</title>
+    <link href="https://kuibarj.top/posts/6b98c3b0.html"/>
+    <id>https://kuibarj.top/posts/6b98c3b0.html</id>
+    <published>2021-07-12T15:52:57.000Z</published>
+    <updated>2021-07-12T16:28:28.044Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2021/jpeg/12849280/1626104393184-ad5dc533-507b-4ebd-8024-fef2759d03fc.jpeg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="漏洞复现" scheme="https://kuibarj.top/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="漏洞复现" scheme="https://kuibarj.top/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>锐捷NBR路由器RCE</title>
+    <link href="https://kuibarj.top/posts/43bd18b.html"/>
+    <id>https://kuibarj.top/posts/43bd18b.html</id>
+    <published>2021-07-12T15:44:55.000Z</published>
+    <updated>2021-07-12T16:28:28.045Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2021/jpeg/12849280/1626104393184-ad5dc533-507b-4ebd-8024-fef2759d03fc.jpeg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="漏洞复现" scheme="https://kuibarj.top/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="漏洞复现" scheme="https://kuibarj.top/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>齐治堡垒机任意用户登录</title>
+    <link href="https://kuibarj.top/posts/f8593b1e.html"/>
+    <id>https://kuibarj.top/posts/f8593b1e.html</id>
+    <published>2021-07-12T13:33:54.000Z</published>
+    <updated>2021-07-12T16:28:28.042Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://cdn.nlark.com/yuque/0/2021/jpeg/12849280/1626104393184-ad5dc533-507b-4ebd-8024-fef2759d03fc.jpeg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="漏洞复现" scheme="https://kuibarj.top/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="漏洞复现" scheme="https://kuibarj.top/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>给FRP化化妆</title>
@@ -194,7 +289,7 @@
     <link href="https://kuibarj.top/posts/1143e85d.html"/>
     <id>https://kuibarj.top/posts/1143e85d.html</id>
     <published>2019-08-25T00:30:16.000Z</published>
-    <updated>2021-03-24T18:02:15.569Z</updated>
+    <updated>2021-07-12T13:41:27.321Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/H3d8d7218658f418d9326f5b2147f9119C.png&quot;&gt;&lt;/p&gt;</summary>
@@ -299,7 +394,7 @@
     <link href="https://kuibarj.top/posts/84477c27.html"/>
     <id>https://kuibarj.top/posts/84477c27.html</id>
     <published>2019-05-16T01:40:08.000Z</published>
-    <updated>2021-07-11T14:52:17.924Z</updated>
+    <updated>2021-07-12T13:45:39.972Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/HTB13y5aaEWF3KVjSZPhq6xclXXa2.jpg&quot;&gt;&lt;/p&gt;</summary>
@@ -312,109 +407,6 @@
     <category term="CA证书" scheme="https://kuibarj.top/tags/CA%E8%AF%81%E4%B9%A6/"/>
     
     <category term="Burpsuite" scheme="https://kuibarj.top/tags/Burpsuite/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>初次使用BeautifulSoup(bs4)小记</title>
-    <link href="https://kuibarj.top/posts/f939aff4.html"/>
-    <id>https://kuibarj.top/posts/f939aff4.html</id>
-    <published>2019-05-14T01:49:19.000Z</published>
-    <updated>2019-05-27T09:49:57.863Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/HTB1rJGdaBGE3KVjSZFhq6AkaFXaN.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="编程语言" scheme="https://kuibarj.top/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-    
-    <category term="学习" scheme="https://kuibarj.top/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="Python" scheme="https://kuibarj.top/tags/Python/"/>
-    
-    <category term="爬虫" scheme="https://kuibarj.top/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>记一次失败的手机图片定位</title>
-    <link href="https://kuibarj.top/posts/f8cabab2.html"/>
-    <id>https://kuibarj.top/posts/f8cabab2.html</id>
-    <published>2019-05-11T14:24:06.000Z</published>
-    <updated>2019-05-27T09:50:19.385Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/HTB1Cb5jaBGw3KVjSZFDq6xWEpXak.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="编程语言" scheme="https://kuibarj.top/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-    
-    <category term="学习" scheme="https://kuibarj.top/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="Python" scheme="https://kuibarj.top/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RCE Vulnerability in antSword</title>
-    <link href="https://kuibarj.top/posts/4e91690d.html"/>
-    <id>https://kuibarj.top/posts/4e91690d.html</id>
-    <published>2019-04-14T04:42:55.000Z</published>
-    <updated>2021-07-11T15:06:38.074Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/HTB18FOoaBGw3KVjSZFwq6zQ2FXa1.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="漏洞复现" scheme="https://kuibarj.top/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
-    
-    
-    <category term="X(R)S(C)S(E)" scheme="https://kuibarj.top/tags/X-R-S-C-S-E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reverse-shells</title>
-    <link href="https://kuibarj.top/posts/8a802f59.html"/>
-    <id>https://kuibarj.top/posts/8a802f59.html</id>
-    <published>2019-04-05T12:03:33.000Z</published>
-    <updated>2019-05-27T10:02:01.431Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/HTB1jk1rarys3KVjSZFnq6xFzpXaZ.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="转载搬运" scheme="https://kuibarj.top/categories/%E8%BD%AC%E8%BD%BD%E6%90%AC%E8%BF%90/"/>
-    
-    
-    <category term="备忘录" scheme="https://kuibarj.top/tags/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
-    
-    <category term="Shell" scheme="https://kuibarj.top/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Microsoft IIS WebDAV Write Access Code Execution</title>
-    <link href="https://kuibarj.top/posts/6b5b56c.html"/>
-    <id>https://kuibarj.top/posts/6b5b56c.html</id>
-    <published>2019-04-04T07:37:36.000Z</published>
-    <updated>2019-05-27T09:56:19.198Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/HTB18xKiaCSD3KVjSZFKq6z10VXaO.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="技术水文" scheme="https://kuibarj.top/categories/%E6%8A%80%E6%9C%AF%E6%B0%B4%E6%96%87/"/>
-    
-    
-    <category term="Web" scheme="https://kuibarj.top/tags/Web/"/>
     
   </entry>
   

