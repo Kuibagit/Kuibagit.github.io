@@ -1,7 +1,7 @@
 ---
 title: 齐治堡垒机任意用户登录
 tags:
-  - 漏洞复现
+  - vuln
 categories:
   - 漏洞复现
 copyright: true

@@ -1,7 +1,8 @@
 ---
 title: 亿邮电子邮件系统RCE
 tags:
-  - 漏洞复现
+  - vuln
+  - PoC
 categories:
   - 漏洞复现
 copyright: true

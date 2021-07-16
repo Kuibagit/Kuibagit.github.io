@@ -1,7 +1,7 @@
 ---
 title: Ruijie-NBR-router-RCE
 tags:
-  - 漏洞复现
+  - vuln
 categories:
   - 漏洞复现
 copyright: true
